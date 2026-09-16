@@ -1,0 +1,10 @@
+# pi0 (LeRobot PyTorch port).
+env: lerobot
+dtype: bf16
+checkpoints:
+  libero:
+    default: lerobot/pi0_libero_finetuned_v044
+adapter_kwargs: {}
+notes: |
+  The only LIBERO-fine-tuned pi0 released for LeRobot. Its absolute success rate is not
+  comparable to the openpi (JAX) pi0 LIBERO checkpoint -- always state which one produced a number.

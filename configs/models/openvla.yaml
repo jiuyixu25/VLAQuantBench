@@ -1,0 +1,14 @@
+# OpenVLA (Kim et al., 2024), original discrete action tokens. Official per-suite fine-tuned checkpoints.
+env: openvla-oft
+dtype: bf16
+checkpoints:
+  libero:
+    libero_spatial: openvla/openvla-7b-finetuned-libero-spatial
+    libero_object: openvla/openvla-7b-finetuned-libero-object
+    libero_goal: openvla/openvla-7b-finetuned-libero-goal
+    libero_10: openvla/openvla-7b-finetuned-libero-10
+adapter_kwargs:
+  repo: null
+  attn_implementation: null   # null -> flash_attention_2 if installed else eager (never SDPA under the moojink fork)
+notes: |
+  Official eval: openvla/openvla run_libero_eval.py (center_crop=True, one action per step).

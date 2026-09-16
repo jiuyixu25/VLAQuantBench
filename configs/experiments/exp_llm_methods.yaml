@@ -1,0 +1,20 @@
+# Off-the-shelf LLM PTQ vs RTN at the task level, with the fixed AWQ integration.
+# The RTN reference cells at W3/W4 come from exp_component_floors (scope llm), so only
+# the method cells are listed here.
+defaults:
+  seed: 0
+  episodes: 20
+  scopes: [llm]
+runs:
+  - models: [openvla_oft]
+    benchmarks: [{name: libero, suites: [libero_spatial]}]
+    methods: [awq]
+    presets: [W3, W4]
+  - models: [openvla_oft]
+    benchmarks: [{name: libero, suites: [libero_spatial]}]
+    methods: [nf4]
+    presets: [W4]
+  - models: [openvla_oft]
+    benchmarks: [{name: libero, suites: [libero_spatial]}]
+    methods: [int8]
+    presets: [W8]

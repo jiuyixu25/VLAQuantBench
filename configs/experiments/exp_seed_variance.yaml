@@ -1,0 +1,14 @@
+# Seed variance. LIBERO initial states are fixed, so the only stochasticity is the
+# policy's own sampling (flow matching / diffusion noise). The paper reports no
+# variance at all; these cells quantify how much of a bit-width "floor" is noise.
+defaults:
+  episodes: 20
+  scopes: [ah]
+  presets: [W3]
+runs:
+  - models: [pi05]
+    benchmarks: [{name: libero, suites: [libero_spatial]}]
+    seed: 1
+  - models: [pi05]
+    benchmarks: [{name: libero, suites: [libero_spatial]}]
+    seed: 2

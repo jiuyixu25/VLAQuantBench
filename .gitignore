@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# Upstream simulators and model repos are installed by scripts/env/, never vendored.
+third_party/
+
+# Rollout videos are large and regenerable; the per-episode JSONL records are tracked.
+results/**/*.mp4
+*.log
+.DS_Store

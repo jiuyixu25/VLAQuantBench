@@ -1,0 +1,12 @@
+# pi0.5 (LeRobot PyTorch port). Baseline precision follows the checkpoint config
+# (bf16 weights with fp32 vision tower / norms for the *_finetuned_v044 checkpoints).
+env: lerobot
+dtype: bf16
+checkpoints:
+  libero:
+    default: lerobot/pi05_libero_finetuned_v044      # one checkpoint for all four suites (MEAN_STD stats included)
+    # alternatives: lerobot/pi05_libero_finetuned_quantiles_v044, lerobot/pi05-libero (n_action_steps=10)
+adapter_kwargs: {}
+notes: |
+  Official eval: lerobot-eval --policy.path=<ckpt> --env.type=libero --env.task=<suite> --eval.n_episodes=50
+  LeRobot's LIBERO protocol renders 360x360 and uses 280/280/300/520 max steps; the adapter declares these.

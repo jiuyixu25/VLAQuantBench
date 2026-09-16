@@ -1,0 +1,15 @@
+# OpenVLA-OFT (Kim et al., 2025). Official per-suite checkpoints; L1 regression head, 2 images, proprio,
+# center crop, 8-step open-loop chunks (all official defaults).
+env: openvla-oft
+dtype: bf16
+checkpoints:
+  libero:
+    libero_spatial: moojink/openvla-7b-oft-finetuned-libero-spatial
+    libero_object: moojink/openvla-7b-oft-finetuned-libero-object
+    libero_goal: moojink/openvla-7b-oft-finetuned-libero-goal
+    libero_10: moojink/openvla-7b-oft-finetuned-libero-10
+adapter_kwargs:
+  repo: null          # null -> third_party/openvla-oft (or $OPENVLA_OFT_REPO)
+notes: |
+  Official eval: python experiments/robot/libero/run_libero_eval.py --pretrained_checkpoint <ckpt> --task_suite_name <suite>
+  Needs the moojink transformers fork (bidirectional SDPA for parallel decoding), timm 0.9.10, tensorflow 2.15.

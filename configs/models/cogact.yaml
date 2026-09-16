@@ -1,0 +1,16 @@
+# CogACT (Li et al., 2024). FP32 release (~30 GB weights); use --dtype bf16 to fit a 24 GB card
+# (this casts the VLM only, exactly like the official `use_bf16` flag; the DiT head stays fp32).
+env: cogact
+dtype: fp32
+checkpoints:
+  simpler:
+    default: CogACT/CogACT-Base      # also: CogACT-Small, CogACT-Large (action_model_type must match)
+adapter_kwargs:
+  repo: null                 # null -> third_party/CogACT
+  policy_setup: google_robot # or widowx_bridge for the Bridge tasks
+  action_model_type: DiT-B
+  cfg_scale: 1.5
+  num_ddim_steps: 10
+notes: |
+  Zero-shot OXE pretraining checkpoints (no SIMPLER fine-tune); unnorm keys fractal20220817_data /
+  bridge_orig. Requires the gated meta-llama/Llama-2-7b-hf repo for the tokenizer/config.

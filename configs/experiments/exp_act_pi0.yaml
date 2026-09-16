@@ -1,0 +1,10 @@
+# Activation-quantization row for pi0, so all four architectures share the same grid
+# (W2/W3/W4 weight-only + W4A4/W4A8 activation, each isolated to one component).
+defaults:
+  seed: 0
+  episodes: 20
+  scopes: [ve, llm, ah]
+  presets: [W4A4, W4A8]
+runs:
+  - models: [pi0]
+    benchmarks: [{name: libero, suites: [libero_spatial]}]

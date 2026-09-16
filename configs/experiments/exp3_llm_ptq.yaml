@@ -1,0 +1,32 @@
+# Experiment 3 - off-the-shelf LLM PTQ methods on the LLaMA-2-7B backbone (paper Table 4)
+# Accuracy runs use each method's fake-quant path; --real-kernel switches to the deployment kernels
+# (see exp3_profile.yaml and scripts/profile_kernels.py for Table 5).
+defaults:
+  seed: 0
+  scopes: [llm]
+runs:
+  - models: [openvla, openvla_oft]
+    benchmarks:
+      - {name: libero, suites: [libero_spatial, libero_object, libero_goal, libero_10]}
+    methods: [rtn]
+    presets: [BASELINE, W3, W4, W8, W8A8]
+  - models: [openvla, openvla_oft]
+    benchmarks:
+      - {name: libero, suites: [libero_spatial, libero_object, libero_goal, libero_10]}
+    methods: [awq]
+    presets: [W3, W4]
+  - models: [openvla, openvla_oft]
+    benchmarks:
+      - {name: libero, suites: [libero_spatial, libero_object, libero_goal, libero_10]}
+    methods: [nf4]
+    presets: [W4]
+  - models: [openvla, openvla_oft]
+    benchmarks:
+      - {name: libero, suites: [libero_spatial, libero_object, libero_goal, libero_10]}
+    methods: [int8]
+    presets: [W8]
+  - models: [openvla, openvla_oft]
+    benchmarks:
+      - {name: libero, suites: [libero_spatial, libero_object, libero_goal, libero_10]}
+    methods: [smoothquant]
+    presets: [W8A8]

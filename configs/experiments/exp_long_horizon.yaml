@@ -1,0 +1,16 @@
+# Same component sweep on LIBERO-10 (long horizon, 520 steps). The paper's own
+# mechanism argument (Sec 5.3) is about errors compounding over a rollout, so the
+# long-horizon suite is where component sensitivity should differ most from
+# libero_spatial -- and it is the suite the paper never breaks down per component.
+defaults:
+  seed: 0
+  episodes: 20
+  scopes: [ve, llm, ah]
+  presets: [W2, W3, W4]
+runs:
+  - models: [pi05]
+    benchmarks: [{name: libero, suites: [libero_10]}]
+  - models: [pi05]
+    benchmarks: [{name: libero, suites: [libero_10]}]
+    presets: [BASELINE]
+    scopes: [e2e]

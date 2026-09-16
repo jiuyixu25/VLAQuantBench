@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vlaquantbench"
+version = "0.1.0"
+description = "Benchmarking post-training quantization for vision-language-action models under closed-loop control"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+dependencies = [
+    "torch>=2.1",
+    "numpy",
+    "pyyaml",
+    "tqdm",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+# LLM-only PTQ transfer experiment (Experiment 3); install inside the OpenVLA env
+ptq = ["bitsandbytes>=0.43", "datasets", "accelerate"]
+
+[project.scripts]
+vqb = "vlaquantbench.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["vlaquantbench*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py38"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,22 @@
+# Component-isolated bit-width floors WITH W2 -- fills the gap where the paper's
+# Table 3 reports 2-bit floors that no experiment in the bit grid supports.
+#
+# For each (model, component) we sweep W2/W3/W4 weight-only and read off the
+# lowest bit-width that keeps closed-loop success. 20 episodes/task is enough to
+# separate "works" (>80%) from "collapsed" (<10%) with a Wilson interval of ~7%;
+# runs are resumable, so key cells can be extended to the official 50 later.
+defaults:
+  seed: 0
+  episodes: 20
+  scopes: [ve, llm, ah]
+  presets: [W2, W3, W4]
+runs:
+  - models: [openvla_oft, pi05, xvla]
+    benchmarks:
+      - {name: libero, suites: [libero_spatial]}
+  # baselines for the same episode budget (one cell per model)
+  - models: [openvla_oft, pi05, xvla]
+    benchmarks:
+      - {name: libero, suites: [libero_spatial]}
+    presets: [BASELINE]
+    scopes: [e2e]

@@ -1,0 +1,17 @@
+# Experiment 2 - component-isolated sensitivity (paper Tables 2-3)
+# Adds W2 so that the "bit-width floor" of every component is actually observed.
+defaults:
+  seed: 0
+  scopes: [ve, llm, ah]
+  presets: [W2, W3, W4, W8, W4A4, W4A8, W8A8]
+runs:
+  - models: [openvla_oft, pi05, internvla_m1, xvla, pi0]
+    benchmarks:
+      - {name: libero, suites: [libero_spatial, libero_object, libero_goal, libero_10]}
+  - models: [xvla, cogact]
+    benchmarks:
+      - {name: simpler, suites: [google_robot_vm]}
+  - models: [xvla]
+    benchmarks:
+      - {name: calvin, suites: [ABC_D]}
+      - {name: vlabench, suites: [vla_eval]}

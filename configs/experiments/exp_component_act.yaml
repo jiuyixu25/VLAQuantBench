@@ -1,0 +1,13 @@
+# Component-isolated ACTIVATION quantization -- the other half of the component table.
+# The paper reports this only for X-VLA (its Table 2); the claim it supports ("W4A4
+# activation outliers live in vision tokens, not LLM hidden states") needs more than
+# one model to stand up. W4A8 is included because it is the setting where models
+# actually differ (W4A4 collapses everywhere).
+defaults:
+  seed: 0
+  episodes: 20
+  scopes: [ve, llm, ah]
+  presets: [W4A4, W4A8]
+runs:
+  - models: [openvla_oft, pi05]
+    benchmarks: [{name: libero, suites: [libero_spatial]}]

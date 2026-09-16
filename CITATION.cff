@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: If you use VLAQuantBench, please cite the paper below.
+title: "VLAQuantBench: Closed-Loop Evaluation of Post-Training Quantization for Vision-Language-Action Models"
+abstract: >-
+  A controlled benchmark that evaluates post-training quantization of
+  vision-language-action policies by closed-loop task success under each
+  benchmark's official protocol, across four models, four simulation families,
+  seven bit settings, and quantization scopes from end-to-end down to single
+  layers.
+authors:
+  - family-names: Xu
+    given-names: Jiuyi
+    affiliation: Colorado School of Mines
+  - family-names: Jin
+    given-names: Qing
+  - family-names: Chen
+    given-names: Meida
+    affiliation: University of Central Florida
+  - family-names: Wang
+    given-names: Song
+    affiliation: USC Institute for Creative Technologies
+  - family-names: Sui
+    given-names: Yang
+    affiliation: Microsoft AI
+  - family-names: Shi
+    given-names: Yangming
+    affiliation: Colorado School of Mines
+license: MIT
+repository-code: "https://github.com/OWNER/VLAQuantBench"
+keywords:
+  - vision-language-action models
+  - post-training quantization
+  - closed-loop evaluation
+  - robot learning

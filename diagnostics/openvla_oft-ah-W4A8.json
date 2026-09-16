@@ -1,0 +1,49 @@
+{
+ "model": "openvla_oft",
+ "suite": "libero_spatial",
+ "scope": "ah",
+ "preset": "W4A8",
+ "spec": "w4g128asym+a8pt",
+ "layers": {
+  "action_head.model.fc1": {
+   "act_dispersion": 1.2049229804505692,
+   "act_kurtosis": 9.002573388688107,
+   "act_rel_err": 0.014843035925258981,
+   "out_rel_err": 0.006730559361266329,
+   "calls": 47,
+   "in_features": 28672,
+   "out_features": 4096,
+   "params": 117440512
+  },
+  "action_head.model.mlp_resnet_blocks.0.ffn.1": {
+   "act_dispersion": 1.0118290287383058,
+   "act_kurtosis": 837.7333399995845,
+   "act_rel_err": 0.0730053352073152,
+   "out_rel_err": 0.17892554465760577,
+   "calls": 47,
+   "in_features": 4096,
+   "out_features": 4096,
+   "params": 16777216
+  },
+  "action_head.model.mlp_resnet_blocks.1.ffn.1": {
+   "act_dispersion": 1.0113360831078062,
+   "act_kurtosis": 832.7789059902759,
+   "act_rel_err": 0.07738929440049415,
+   "out_rel_err": 0.19214273038062643,
+   "calls": 47,
+   "in_features": 4096,
+   "out_features": 4096,
+   "params": 16777216
+  },
+  "action_head.model.fc2": {
+   "act_dispersion": 1.011581078488776,
+   "act_kurtosis": 834.2607279026762,
+   "act_rel_err": 0.06364235345353471,
+   "out_rel_err": 0.21388162513996692,
+   "calls": 47,
+   "in_features": 4096,
+   "out_features": 7,
+   "params": 28672
+  }
+ }
+}

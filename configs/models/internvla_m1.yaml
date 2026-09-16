@@ -1,0 +1,20 @@
+# InternVLA-M1 (Chen et al., 2025). BF16; from_pretrained needs a *local* run directory
+# (<dir>/checkpoints/*.pt + config.yaml + dataset_statistics.json), not a Hub id.
+env: internvla-m1
+dtype: bf16
+checkpoints:
+  libero:
+    libero_spatial: ./playground/InternVLA-M1-LIBERO-Spatial
+    libero_object: ./playground/InternVLA-M1-LIBERO-Object
+    libero_goal: ./playground/InternVLA-M1-LIBERO-Goal
+    libero_10: ./playground/InternVLA-M1-LIBERO-Long
+  simpler:
+    default: ./playground/InternVLA-M1-Pretrain-RT-1-Bridge
+adapter_kwargs:
+  repo: null                  # null -> third_party/InternVLA-M1
+  policy_setup: google_robot
+  cfg_scale: 1.5
+  num_ddim_steps: 10
+notes: |
+  Download the HF repos first (hf download InternRobotics/InternVLA-M1-LIBERO-Spatial --local-dir ...).
+  Requires flash-attn (hard-coded in the model code) and transformers >= 4.52 for the checkpoint key layout.

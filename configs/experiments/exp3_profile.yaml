@@ -1,0 +1,24 @@
+# Experiment 3 (deployment side) - real-kernel latency / memory during LIBERO rollouts (paper Table 5)
+# Each run executes the LLM backbone with the method's real kernel; latency/VRAM land in the JSONL records.
+defaults:
+  seed: 0
+  scopes: [llm]
+  real_kernel: true
+  episodes: 10          # latency/memory only need a few rollouts; success is still recorded
+runs:
+  - models: [openvla_oft]
+    benchmarks: [{name: libero, suites: [libero_spatial]}]
+    methods: [rtn]
+    presets: [BASELINE]
+  - models: [openvla_oft]
+    benchmarks: [{name: libero, suites: [libero_spatial]}]
+    methods: [rtn, awq, nf4]
+    presets: [W4]
+  - models: [openvla_oft]
+    benchmarks: [{name: libero, suites: [libero_spatial]}]
+    methods: [int8]
+    presets: [W8]
+  - models: [openvla_oft]
+    benchmarks: [{name: libero, suites: [libero_spatial]}]
+    methods: [smoothquant]
+    presets: [W8A8]

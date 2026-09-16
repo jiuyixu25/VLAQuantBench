@@ -1,0 +1,11 @@
+# pi0.5 activation row on the long-horizon suite, so its libero_10 grid matches its
+# libero_spatial grid. The weight rows already showed the component ordering is
+# horizon-invariant; this checks whether the W4A4 collapse pattern is too.
+defaults:
+  seed: 0
+  episodes: 20
+  scopes: [ve, llm, ah]
+  presets: [W4A4, W4A8]
+runs:
+  - models: [pi05]
+    benchmarks: [{name: libero, suites: [libero_10]}]

@@ -1,0 +1,13 @@
+# pi0 activation row on libero_10, completing the pi0 / pi0.5 pair: same SigLIP + Gemma-2B
+# backbone, same flow-matching recipe, differing mainly in the action expert's normalisation
+# (pi0.5 has adaRMS, pi0 does not) -- and with opposite bottleneck components. Having both
+# models on both suites for both weight and activation quantization makes that pair the
+# cleanest controlled comparison in the study.
+defaults:
+  seed: 0
+  episodes: 20
+  scopes: [ve, llm, ah]
+  presets: [W4A4, W4A8]
+runs:
+  - models: [pi0]
+    benchmarks: [{name: libero, suites: [libero_10]}]

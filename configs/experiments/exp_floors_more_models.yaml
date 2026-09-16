@@ -1,0 +1,16 @@
+# Third and fourth architectures for the "bottleneck component is architecture-dependent"
+# claim. pi0 differs from pi0.5 in its action expert (plain RMSNorm, no adaRMS, plus a
+# state projection); X-VLA's action head is a 24-layer transformer, a third design point.
+# pi0 also lets us check the paper's anomalous 73.7% LIBERO baseline (public reports ~94%).
+defaults:
+  seed: 0
+  episodes: 20
+  scopes: [ve, llm, ah]
+  presets: [W2, W3, W4]
+runs:
+  - models: [pi0, xvla]
+    benchmarks: [{name: libero, suites: [libero_spatial]}]
+  - models: [pi0, xvla]
+    benchmarks: [{name: libero, suites: [libero_spatial]}]
+    presets: [BASELINE]
+    scopes: [e2e]

@@ -1,0 +1,27 @@
+Using LIBERO constants:
+  NUM_ACTIONS_CHUNK = 8
+  ACTION_DIM = 7
+  PROPRIO_DIM = 8
+  ACTION_PROPRIO_NORMALIZATION_TYPE = bounds_q99
+If needed, manually set the correct constants in `prismatic/vla/constants.py`!
+Instantiating pretrained VLA policy...
+baseline         prefill     45.3 ms | decode    362.0 ms | weights 12.58 GB | peak 14.74 GB
+Instantiating pretrained VLA policy...
+09/03 [18:26:31] INFO     | >> packed 224 RTN layers into             awq.py:314
+                          WQLinear_GEMM (w4, g128)                              
+rtn_awqkernel    prefill     69.6 ms | decode    561.2 ms | weights 3.65 GB | peak 15.04 GB
+Instantiating pretrained VLA policy...
+09/03 [18:28:03] INFO     | >> bitsandbytes nf4: replaced 224 Linear   bnb.py:84
+                          layers                                                
+nf4              prefill     75.8 ms | decode    493.2 ms | weights 3.54 GB | peak 14.48 GB
+Instantiating pretrained VLA policy...
+09/03 [18:29:33] INFO     | >> bitsandbytes int8: replaced 224 Linear  bnb.py:84
+                          layers                                                
+int8             prefill    260.1 ms | decode   1995.1 ms | weights 6.55 GB | peak 14.60 GB
+Instantiating pretrained VLA policy...
+09/03 [18:30:37] INFO     | >> TensorFlow version 2.15.0           config.py:112
+                          available.                                            
+09/03 [18:31:39] INFO     | >> replaced 224 layers with        smoothquant.py:86
+                          torch._int_mm W8A8 linears                            
+                          (smoothed=True)                                       
+smoothquant      prefill    116.1 ms | decode    846.2 ms | weights 6.56 GB | peak 17.38 GB

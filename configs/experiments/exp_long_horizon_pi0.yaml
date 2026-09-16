@@ -1,0 +1,16 @@
+# pi0 on the long-horizon suite. pi0.5 already showed that the component ordering is
+# horizon-invariant (LLM worst at W2 on both libero_spatial and libero_10, with only the
+# magnitude growing); running the model whose bottleneck is the *other* component checks
+# whether that invariance is a property of the benchmark rather than of one model.
+defaults:
+  seed: 0
+  episodes: 20
+  scopes: [ve, llm, ah]
+  presets: [W2, W3, W4]
+runs:
+  - models: [pi0]
+    benchmarks: [{name: libero, suites: [libero_10]}]
+  - models: [pi0]
+    benchmarks: [{name: libero, suites: [libero_10]}]
+    presets: [BASELINE]
+    scopes: [e2e]

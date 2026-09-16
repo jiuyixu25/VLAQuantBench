@@ -1,0 +1,17 @@
+# Experiment 1 - end-to-end bit-width sweep (paper Table 1)
+# Expand with:  vqb matrix configs/experiments/exp1_end2end.yaml --print
+defaults:
+  seed: 0
+  scopes: [e2e]
+  presets: [BASELINE, W3, W4, W8, W4A4, W4A8, W8A8]
+runs:
+  - models: [openvla_oft, pi0, pi05, internvla_m1, xvla]
+    benchmarks:
+      - {name: libero, suites: [libero_spatial, libero_object, libero_goal, libero_10]}
+  - models: [cogact, xvla]
+    benchmarks:
+      - {name: simpler, suites: [google_robot_vm, google_robot_va]}
+  - models: [xvla]
+    benchmarks:
+      - {name: calvin, suites: [ABC_D]}
+      - {name: vlabench, suites: [vla_eval]}

@@ -1,0 +1,10 @@
+# Client for a policy served by `vqb serve` (see docs/protocol.md section 5 and vlaquantbench/remote.py).
+# The served adapter's checkpoint, dtype and protocol constants are read from /info at connect time.
+env: null
+adapter_kwargs:
+  url: http://127.0.0.1:8010
+  timeout: 600
+notes: |
+  vqb serve  --model xvla --benchmark calvin --preset W4 --port 8010     # model environment
+  vqb run    --model remote --model-kwargs url=http://127.0.0.1:8010 \
+             --benchmark calvin --suite ABC_D --preset W4                # simulator environment

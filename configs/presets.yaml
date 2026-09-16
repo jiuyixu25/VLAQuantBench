@@ -1,0 +1,12 @@
+# Table 7 of the paper (+ W2, added for the released benchmark).
+# Presets are parsed by vlaquantbench.quant.presets.parse_spec; this file is documentation
+# and the source for `vqb presets`.
+presets:
+  W2:   {w_bits: 2, w_scheme: per-group-asym, group_size: 128, a_bits: null}
+  W3:   {w_bits: 3, w_scheme: per-group-asym, group_size: 128, a_bits: null}
+  W4:   {w_bits: 4, w_scheme: per-group-asym, group_size: 128, a_bits: null}
+  W8:   {w_bits: 8, w_scheme: per-channel-sym, a_bits: null}
+  W4A4: {w_bits: 4, w_scheme: per-group-asym, group_size: 128, a_bits: 4, a_scheme: per-token-sym-dynamic}
+  W4A8: {w_bits: 4, w_scheme: per-group-asym, group_size: 128, a_bits: 8, a_scheme: per-token-sym-dynamic}
+  W8A8: {w_bits: 8, w_scheme: per-channel-sym, a_bits: 8, a_scheme: per-token-sym-dynamic}
+paper_presets: [W3, W4, W8, W4A4, W4A8, W8A8]
