@@ -41,8 +41,10 @@ def main() -> None:
     ap.add_argument("--min-episodes", type=int, default=180)
     args = ap.parse_args()
 
-    rows, bad = [], []
+    rows, bad, reduced = [], [], []
     for path in sorted(Path(args.root).rglob("*.jsonl")):
+        if "latency" in path.parts or "fidelity" in path.parts:
+            continue  # profiling / paired-replay runs are not accuracy cells (see results/README.md)
         header, eps = read(path)
         n = len(eps)
         report = header.get("quant_report") or {}
@@ -59,7 +61,9 @@ def main() -> None:
             bad.append((path, "ZERO EPISODES"))
             continue
         if n < args.min_episodes:
-            bad.append((path, f"only {n} episodes"))
+            # a documented reduced budget (e.g. VLABench W4A4 tracks) is reported, not rejected:
+            # the integrity checks below are what decide whether a cell is usable
+            reduced.append((path, n))
         method = header.get("method") or "rtn"
         # AWQ/NF4/int8/SmoothQuant write a flat quant_report ({method, w_bits, ...})
         # rather than {component: {layers, params}}, so the layer check applies to RTN only.
@@ -85,13 +89,17 @@ def main() -> None:
               f"{r['layers']:7d} {r['params']:13,d} {r['steps'] if r['steps'] else ''}")
 
     print()
+    if reduced:
+        print(f"{len(reduced)} cell(s) below {args.min_episodes} episodes (reduced budget; usable, wider intervals):")
+        for p, n in reduced:
+            print(f"   {p}: {n} episodes")
     if bad:
         print(f"!! {len(bad)} cell(s) FAILED verification -- do not use:")
         for p, why in bad:
             print(f"   {p}: {why}")
-    else:
-        print(f"all {len(rows)} cells verified: >= {args.min_episodes} episodes, "
-              f"and every non-baseline cell quantized at least one layer")
+        raise SystemExit(1)
+    print(f"all {len(rows)} cells verified: every non-baseline RTN cell quantized at least one layer "
+          f"and every method cell recorded its quantization; {len(rows) - len(reduced)} at >= {args.min_episodes} episodes")
 
 
 if __name__ == "__main__":

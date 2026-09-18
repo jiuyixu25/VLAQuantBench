@@ -17,3 +17,17 @@ Runs are resumable: re-running the same cell appends only the missing episodes. 
 
 `vqb summarize results/ [--ci] [--format md|latex|csv|json]` aggregates everything; LIBERO additionally
 gets a `libero_avg4` row (mean of the four suite success rates).
+
+## Other directories under `results/`
+
+* `latency/<model>/` — real-kernel profiling runs (20 LIBERO episodes each, `--real-kernel`);
+  `session1..3/` are three further independent sessions of the same five settings. These are
+  timing measurements, not accuracy cells, and are excluded from `summary.csv` and from the
+  accuracy audit.
+* `fidelity/<model>/` — the paired-observation action-fidelity test (`scripts/action_fidelity.py`):
+  `record.npz` holds every observation and action of one held-out full-precision episode;
+  `<method>-<preset>-<scope>.json` holds the replayed deviation and its definition, and the
+  matching `.actions.npy` the replayed action sequence.
+* `../diagnostics/` — on-policy activation statistics per layer; `v2/` is the recollection on
+  held-out init states with full provenance (checkpoint revision, seed, init states, MuJoCo,
+  PyTorch, code revision, GPU) recorded in each file.

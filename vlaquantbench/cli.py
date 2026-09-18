@@ -104,7 +104,11 @@ def _collect_act_calib(adapter, runner, args) -> dict:
     if not layers:
         raise SystemExit(f"--act-calib {comps}: no quantizable layers found")
 
-    cache = cache_path(args.model, adapter.checkpoint, args.suite, comps, args.act_calib_episodes)
+    from .results import git_commit
+
+    cache = cache_path(args.model, adapter.checkpoint, args.suite, comps, args.act_calib_episodes,
+                       episodes_from=args.act_calib_from, tasks=args.act_calib_tasks, seed=args.seed,
+                       commit=git_commit())
     if cache.exists():
         raw = torch.load(cache, weights_only=False)
         log.info("act-calib: loaded cached statistics for %d layers from %s", len(raw), cache)
@@ -114,16 +118,22 @@ def _collect_act_calib(adapter, runner, args) -> dict:
             "act-calib: collecting statistics over %d episode(s) x %d task(s) with the un-quantized policy",
             args.act_calib_episodes, len(cal_tasks),
         )
+        ep0 = args.act_calib_from
         raw = collect_stats(
             layers,
             lambda: runner.run(
-                adapter, None, tasks=cal_tasks, episodes=range(args.act_calib_episodes), log_every=100
+                adapter, None, tasks=cal_tasks, episodes=range(ep0, ep0 + args.act_calib_episodes), log_every=100
             ),
         )
         torch.save(raw, cache)
         log.info("act-calib: cached statistics to %s", cache)
     bank = build_calibration(layers, raw, alpha=args.act_calib_alpha, clip_quantile=args.act_calib_quantile)
     log.info("act-calib: calibrating %d layers in components %s", len(bank), "+".join(comps))
+    args._act_calib_provenance = {
+        "components": comps, "episodes": args.act_calib_episodes, "episodes_from": args.act_calib_from,
+        "tasks": args.act_calib_tasks, "seed": args.seed, "alpha": args.act_calib_alpha,
+        "clip_quantile": args.act_calib_quantile, "cache": cache.name, "commit": git_commit(),
+    }
     return bank
 
 
@@ -153,7 +163,8 @@ def apply_quantization(adapter, args, act_calib: dict | None = None) -> dict[str
         if act_calib:
             for c, r in reports.items():
                 out[c]["calibrated_layers"] = sum(1 for l in r.layers if l.act_calibrated)
-            out["act_calib"] = {"components": list(args.act_calib), "episodes": getattr(args, "act_calib_episodes", None)}
+            out["act_calib"] = getattr(args, "_act_calib_provenance", None) or {
+                "components": list(args.act_calib), "episodes": getattr(args, "act_calib_episodes", None)}
         return out
     from .methods import apply_method  # heavy deps, imported lazily
 
@@ -391,6 +402,9 @@ def build_parser() -> argparse.ArgumentParser:
                      help="SmoothQuant migration strength (default 0.5)")
     run.add_argument("--act-calib-quantile", type=float, default=0.999,
                      help="clip quantile: 0.999 (default) or 0.99 for harder clipping")
+    run.add_argument("--act-calib-from", type=int, default=20,
+                     help="first init-state index used for calibration rollouts (default 20: disjoint from the "
+                          "evaluation states 0-19; the 2026-08 cells were collected with --act-calib-from 0)")
     run.add_argument("--act-calib-episodes", type=int, default=2,
                      help="episodes per calibration task (default 2)")
     run.add_argument("--act-calib-tasks", type=int, default=1,

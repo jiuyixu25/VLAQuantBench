@@ -155,8 +155,14 @@ def build_calibration(
     return calib
 
 
-def cache_path(model: str, checkpoint: str, suite: str, components: Iterable[str], episodes: int) -> Path:
-    key = f"{model}|{checkpoint}|{suite}|{'+'.join(sorted(components))}|{episodes}"
+def cache_path(model: str, checkpoint: str, suite: str, components: Iterable[str], episodes: int, *,
+               episodes_from: int = 0, tasks: int = 1, seed: int = 0, commit: str | None = None) -> Path:
+    """Cache file for collected statistics. The key covers every input that changes them:
+    which init states were rolled out (``episodes_from``, ``episodes``, ``tasks``), the RNG seed
+    of the un-quantized policy, and the code revision -- so a cache entry can never be reused
+    across a change that would have produced different statistics."""
+    key = (f"{model}|{checkpoint}|{suite}|{'+'.join(sorted(components))}|{episodes}"
+           f"|from={episodes_from}|tasks={tasks}|seed={seed}|commit={commit or 'unknown'}")
     tag = hashlib.sha1(key.encode()).hexdigest()[:12]
     root = Path.home() / ".cache" / "vlaquantbench" / "actcalib"
     root.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,1696 @@
+{
+ "model": "pi05",
+ "suite": "libero_spatial",
+ "scope": "ah",
+ "preset": "W4A4",
+ "spec": "w4g128asym+a4pt",
+ "provenance": {
+  "checkpoint": "lerobot/pi05_libero_finetuned_v044",
+  "checkpoint_revision": "8e174154ef5f6c60a8da12ae99c303d8963138c1",
+  "seed": 0,
+  "tasks": [
+   0,
+   1
+  ],
+  "episodes_from": 20,
+  "episodes": 2,
+  "vqb_commit": "dcd3cd1",
+  "mujoco": "3.3.2",
+  "torch": "2.10.0+cu128",
+  "python": "3.12.13",
+  "gpu": "NVIDIA GeForce RTX 5080 Laptop GPU",
+  "created": "2026-09-17T15:40:12"
+ },
+ "layers": {
+  "gemma_expert.layers.0.self_attn.q_proj": {
+   "act_dispersion": 1.5703730363594859,
+   "act_kurtosis": 9.415284717710394,
+   "act_rel_err": 0.2250259268832834,
+   "out_rel_err": 0.03806052773602699,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 2048,
+   "params": 2097152
+  },
+  "gemma_expert.layers.0.self_attn.k_proj": {
+   "act_dispersion": 1.5703730363594859,
+   "act_kurtosis": 9.415284717710394,
+   "act_rel_err": 0.2250259268832834,
+   "out_rel_err": 0.04870504394761826,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.0.self_attn.v_proj": {
+   "act_dispersion": 1.5703730363594859,
+   "act_kurtosis": 9.415284717710394,
+   "act_rel_err": 0.2250259268832834,
+   "out_rel_err": 0.03046911065221617,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.0.self_attn.o_proj": {
+   "act_dispersion": 1.0118172109127044,
+   "act_kurtosis": 16.5323182356985,
+   "act_rel_err": 0.25820301214331076,
+   "out_rel_err": 0.10164756094546694,
+   "calls": 380,
+   "in_features": 2048,
+   "out_features": 1024,
+   "params": 2097152
+  },
+  "gemma_expert.layers.0.mlp.gate_proj": {
+   "act_dispersion": 1.100506267422124,
+   "act_kurtosis": 168.52955073306435,
+   "act_rel_err": 0.44311705906140175,
+   "out_rel_err": 0.28779617206830727,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.0.mlp.up_proj": {
+   "act_dispersion": 1.100506267422124,
+   "act_kurtosis": 168.52955073306435,
+   "act_rel_err": 0.44311705906140175,
+   "out_rel_err": 0.36717136274827156,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.0.mlp.down_proj": {
+   "act_dispersion": 1.5134510124984542,
+   "act_kurtosis": 36.99386690039384,
+   "act_rel_err": 0.23041674714339408,
+   "out_rel_err": 0.1502536332528842,
+   "calls": 380,
+   "in_features": 4096,
+   "out_features": 1024,
+   "params": 4194304
+  },
+  "gemma_expert.layers.0.input_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.36091637015342715,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.0.post_attention_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.3936136603355408,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.1.self_attn.q_proj": {
+   "act_dispersion": 1.2340151062137201,
+   "act_kurtosis": 73.21294664081775,
+   "act_rel_err": 0.44789090807500637,
+   "out_rel_err": 0.22743344354002099,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 2048,
+   "params": 2097152
+  },
+  "gemma_expert.layers.1.self_attn.k_proj": {
+   "act_dispersion": 1.2340151062137201,
+   "act_kurtosis": 73.21294664081775,
+   "act_rel_err": 0.44789090807500637,
+   "out_rel_err": 0.3508280385089548,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.1.self_attn.v_proj": {
+   "act_dispersion": 1.2340151062137201,
+   "act_kurtosis": 73.21294664081775,
+   "act_rel_err": 0.44789090807500637,
+   "out_rel_err": 0.3392729245910519,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.1.self_attn.o_proj": {
+   "act_dispersion": 1.286657244280765,
+   "act_kurtosis": 31.49183053970337,
+   "act_rel_err": 0.31010706867826615,
+   "out_rel_err": 0.19031570851802826,
+   "calls": 380,
+   "in_features": 2048,
+   "out_features": 1024,
+   "params": 2097152
+  },
+  "gemma_expert.layers.1.mlp.gate_proj": {
+   "act_dispersion": 1.141726006959614,
+   "act_kurtosis": 77.69870800219084,
+   "act_rel_err": 0.4268470866899741,
+   "out_rel_err": 0.23055555024429372,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.1.mlp.up_proj": {
+   "act_dispersion": 1.141726006959614,
+   "act_kurtosis": 77.69870800219084,
+   "act_rel_err": 0.4268470866899741,
+   "out_rel_err": 0.29292409263159097,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.1.mlp.down_proj": {
+   "act_dispersion": 1.5816367601093493,
+   "act_kurtosis": 48.537057234111586,
+   "act_rel_err": 0.24017764816158696,
+   "out_rel_err": 0.23679516974248385,
+   "calls": 380,
+   "in_features": 4096,
+   "out_features": 1024,
+   "params": 4194304
+  },
+  "gemma_expert.layers.1.input_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.39311946630477906,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.1.post_attention_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.45395236313343046,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.2.self_attn.q_proj": {
+   "act_dispersion": 1.434609115751166,
+   "act_kurtosis": 30.736888182790654,
+   "act_rel_err": 0.3421058210887407,
+   "out_rel_err": 0.14938626242311379,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 2048,
+   "params": 2097152
+  },
+  "gemma_expert.layers.2.self_attn.k_proj": {
+   "act_dispersion": 1.434609115751166,
+   "act_kurtosis": 30.736888182790654,
+   "act_rel_err": 0.3421058210887407,
+   "out_rel_err": 0.16104632204300479,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.2.self_attn.v_proj": {
+   "act_dispersion": 1.434609115751166,
+   "act_kurtosis": 30.736888182790654,
+   "act_rel_err": 0.3421058210887407,
+   "out_rel_err": 0.1568274742678592,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.2.self_attn.o_proj": {
+   "act_dispersion": 1.3481368290750604,
+   "act_kurtosis": 12.994738208620172,
+   "act_rel_err": 0.2415442836519919,
+   "out_rel_err": 0.11928280046895931,
+   "calls": 380,
+   "in_features": 2048,
+   "out_features": 1024,
+   "params": 2097152
+  },
+  "gemma_expert.layers.2.mlp.gate_proj": {
+   "act_dispersion": 1.3715266867687828,
+   "act_kurtosis": 172.26603588305022,
+   "act_rel_err": 0.47695359650411107,
+   "out_rel_err": 0.2841058383254628,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.2.mlp.up_proj": {
+   "act_dispersion": 1.3715266867687828,
+   "act_kurtosis": 172.26603588305022,
+   "act_rel_err": 0.47695359650411107,
+   "out_rel_err": 0.29899332566480885,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.2.mlp.down_proj": {
+   "act_dispersion": 1.5897168065372267,
+   "act_kurtosis": 38.746024392780505,
+   "act_rel_err": 0.3138199806997651,
+   "out_rel_err": 0.3254270816319867,
+   "calls": 380,
+   "in_features": 4096,
+   "out_features": 1024,
+   "params": 4194304
+  },
+  "gemma_expert.layers.2.input_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.42804873883724215,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.2.post_attention_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.4598629057407379,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.3.self_attn.q_proj": {
+   "act_dispersion": 1.4174523868058857,
+   "act_kurtosis": 72.25477898246363,
+   "act_rel_err": 0.4032773631183725,
+   "out_rel_err": 0.19292963094225055,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 2048,
+   "params": 2097152
+  },
+  "gemma_expert.layers.3.self_attn.k_proj": {
+   "act_dispersion": 1.4174523868058857,
+   "act_kurtosis": 72.25477898246363,
+   "act_rel_err": 0.4032773631183725,
+   "out_rel_err": 0.1902203177346995,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.3.self_attn.v_proj": {
+   "act_dispersion": 1.4174523868058857,
+   "act_kurtosis": 72.25477898246363,
+   "act_rel_err": 0.4032773631183725,
+   "out_rel_err": 0.25894173066082754,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.3.self_attn.o_proj": {
+   "act_dispersion": 1.2174952974444941,
+   "act_kurtosis": 13.22017762911947,
+   "act_rel_err": 0.2703062460610741,
+   "out_rel_err": 0.1296380006365086,
+   "calls": 380,
+   "in_features": 2048,
+   "out_features": 1024,
+   "params": 2097152
+  },
+  "gemma_expert.layers.3.mlp.gate_proj": {
+   "act_dispersion": 1.2960686153487155,
+   "act_kurtosis": 72.51974864758944,
+   "act_rel_err": 0.4398884692474415,
+   "out_rel_err": 0.24497905977462467,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.3.mlp.up_proj": {
+   "act_dispersion": 1.2960686153487155,
+   "act_kurtosis": 72.51974864758944,
+   "act_rel_err": 0.4398884692474415,
+   "out_rel_err": 0.28179424636458095,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.3.mlp.down_proj": {
+   "act_dispersion": 1.893911597289537,
+   "act_kurtosis": 69.84462003707885,
+   "act_rel_err": 0.39922574295809393,
+   "out_rel_err": 0.21703253145280638,
+   "calls": 380,
+   "in_features": 4096,
+   "out_features": 1024,
+   "params": 4194304
+  },
+  "gemma_expert.layers.3.input_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.38197559118270874,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.3.post_attention_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.43362465500831604,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.4.self_attn.q_proj": {
+   "act_dispersion": 1.3232937806531002,
+   "act_kurtosis": 45.452445210908586,
+   "act_rel_err": 0.3816205767424483,
+   "out_rel_err": 0.23749880727968717,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 2048,
+   "params": 2097152
+  },
+  "gemma_expert.layers.4.self_attn.k_proj": {
+   "act_dispersion": 1.3232937806531002,
+   "act_kurtosis": 45.452445210908586,
+   "act_rel_err": 0.3816205767424483,
+   "out_rel_err": 0.21994159421638437,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.4.self_attn.v_proj": {
+   "act_dispersion": 1.3232937806531002,
+   "act_kurtosis": 45.452445210908586,
+   "act_rel_err": 0.3816205767424483,
+   "out_rel_err": 0.22041996627261765,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.4.self_attn.o_proj": {
+   "act_dispersion": 1.3754229476577358,
+   "act_kurtosis": 11.298512594323409,
+   "act_rel_err": 0.24381005681659046,
+   "out_rel_err": 0.12541677930245274,
+   "calls": 380,
+   "in_features": 2048,
+   "out_features": 1024,
+   "params": 2097152
+  },
+  "gemma_expert.layers.4.mlp.gate_proj": {
+   "act_dispersion": 1.324337776397404,
+   "act_kurtosis": 22.77674590411939,
+   "act_rel_err": 0.2899515107666191,
+   "out_rel_err": 0.15766542157844493,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.4.mlp.up_proj": {
+   "act_dispersion": 1.324337776397404,
+   "act_kurtosis": 22.77674590411939,
+   "act_rel_err": 0.2899515107666191,
+   "out_rel_err": 0.20905632227659227,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.4.mlp.down_proj": {
+   "act_dispersion": 2.3537503113872127,
+   "act_kurtosis": 279.8844487641987,
+   "act_rel_err": 0.4696157873461121,
+   "out_rel_err": 0.3439673283774602,
+   "calls": 380,
+   "in_features": 4096,
+   "out_features": 1024,
+   "params": 4194304
+  },
+  "gemma_expert.layers.4.input_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.3938327431678772,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.4.post_attention_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.3886923134326935,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.5.self_attn.q_proj": {
+   "act_dispersion": 1.2777972403325533,
+   "act_kurtosis": 36.620795475809196,
+   "act_rel_err": 0.3770713315982568,
+   "out_rel_err": 0.2164696190310152,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 2048,
+   "params": 2097152
+  },
+  "gemma_expert.layers.5.self_attn.k_proj": {
+   "act_dispersion": 1.2777972403325533,
+   "act_kurtosis": 36.620795475809196,
+   "act_rel_err": 0.3770713315982568,
+   "out_rel_err": 0.22833752475286784,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.5.self_attn.v_proj": {
+   "act_dispersion": 1.2777972403325533,
+   "act_kurtosis": 36.620795475809196,
+   "act_rel_err": 0.3770713315982568,
+   "out_rel_err": 0.23625225616913093,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.5.self_attn.o_proj": {
+   "act_dispersion": 1.24201605508202,
+   "act_kurtosis": 10.61493865314283,
+   "act_rel_err": 0.24464571001498323,
+   "out_rel_err": 0.1813041994838338,
+   "calls": 380,
+   "in_features": 2048,
+   "out_features": 1024,
+   "params": 2097152
+  },
+  "gemma_expert.layers.5.mlp.gate_proj": {
+   "act_dispersion": 1.2625512687783493,
+   "act_kurtosis": 32.1285109068218,
+   "act_rel_err": 0.34742934201893055,
+   "out_rel_err": 0.2003410174658424,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.5.mlp.up_proj": {
+   "act_dispersion": 1.2625512687783493,
+   "act_kurtosis": 32.1285109068218,
+   "act_rel_err": 0.34742934201893055,
+   "out_rel_err": 0.2600994846146358,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.5.mlp.down_proj": {
+   "act_dispersion": 2.7337484958924745,
+   "act_kurtosis": 826.9410771922061,
+   "act_rel_err": 0.4719433142166389,
+   "out_rel_err": 0.40212724965653923,
+   "calls": 380,
+   "in_features": 4096,
+   "out_features": 1024,
+   "params": 4194304
+  },
+  "gemma_expert.layers.5.input_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.37974425256252287,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.5.post_attention_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.38767974376678466,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.6.self_attn.q_proj": {
+   "act_dispersion": 1.3649729289506611,
+   "act_kurtosis": 35.136869119343004,
+   "act_rel_err": 0.37141537070274355,
+   "out_rel_err": 0.16511301586502478,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 2048,
+   "params": 2097152
+  },
+  "gemma_expert.layers.6.self_attn.k_proj": {
+   "act_dispersion": 1.3649729289506611,
+   "act_kurtosis": 35.136869119343004,
+   "act_rel_err": 0.37141537070274355,
+   "out_rel_err": 0.15262602689234833,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.6.self_attn.v_proj": {
+   "act_dispersion": 1.3649729289506611,
+   "act_kurtosis": 35.136869119343004,
+   "act_rel_err": 0.37141537070274355,
+   "out_rel_err": 0.258321702401889,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.6.self_attn.o_proj": {
+   "act_dispersion": 1.3468174385397058,
+   "act_kurtosis": 7.970287971747549,
+   "act_rel_err": 0.20572808875065102,
+   "out_rel_err": 0.1298449001029918,
+   "calls": 380,
+   "in_features": 2048,
+   "out_features": 1024,
+   "params": 2097152
+  },
+  "gemma_expert.layers.6.mlp.gate_proj": {
+   "act_dispersion": 1.5909324197392716,
+   "act_kurtosis": 13.000876027659366,
+   "act_rel_err": 0.2471701487506691,
+   "out_rel_err": 0.15558457533387762,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.6.mlp.up_proj": {
+   "act_dispersion": 1.5909324197392716,
+   "act_kurtosis": 13.000876027659366,
+   "act_rel_err": 0.2471701487506691,
+   "out_rel_err": 0.1881381738342737,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.6.mlp.down_proj": {
+   "act_dispersion": 2.415953305834218,
+   "act_kurtosis": 622.8293638128984,
+   "act_rel_err": 0.5057876131252239,
+   "out_rel_err": 0.3940924498595689,
+   "calls": 380,
+   "in_features": 4096,
+   "out_features": 1024,
+   "params": 4194304
+  },
+  "gemma_expert.layers.6.input_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.3932435303926468,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.6.post_attention_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.3681718662381172,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.7.self_attn.q_proj": {
+   "act_dispersion": 1.1957753055974056,
+   "act_kurtosis": 107.8690839767456,
+   "act_rel_err": 0.512102494741741,
+   "out_rel_err": 0.2914204082206676,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 2048,
+   "params": 2097152
+  },
+  "gemma_expert.layers.7.self_attn.k_proj": {
+   "act_dispersion": 1.1957753055974056,
+   "act_kurtosis": 107.8690839767456,
+   "act_rel_err": 0.512102494741741,
+   "out_rel_err": 0.3038922591821144,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.7.self_attn.v_proj": {
+   "act_dispersion": 1.1957753055974056,
+   "act_kurtosis": 107.8690839767456,
+   "act_rel_err": 0.512102494741741,
+   "out_rel_err": 0.3704197343634932,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.7.self_attn.o_proj": {
+   "act_dispersion": 1.787716804052654,
+   "act_kurtosis": 9.753259419140063,
+   "act_rel_err": 0.20618472103225557,
+   "out_rel_err": 0.10268270751755489,
+   "calls": 380,
+   "in_features": 2048,
+   "out_features": 1024,
+   "params": 2097152
+  },
+  "gemma_expert.layers.7.mlp.gate_proj": {
+   "act_dispersion": 1.5367088763337386,
+   "act_kurtosis": 14.407085177772924,
+   "act_rel_err": 0.2637739726587346,
+   "out_rel_err": 0.17578126678341313,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.7.mlp.up_proj": {
+   "act_dispersion": 1.5367088763337386,
+   "act_kurtosis": 14.407085177772924,
+   "act_rel_err": 0.2637739726587346,
+   "out_rel_err": 0.2083832824700757,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.7.mlp.down_proj": {
+   "act_dispersion": 2.235794484615326,
+   "act_kurtosis": 535.0907362887734,
+   "act_rel_err": 0.4662126470553248,
+   "out_rel_err": 0.36531793059487094,
+   "calls": 380,
+   "in_features": 4096,
+   "out_features": 1024,
+   "params": 4194304
+  },
+  "gemma_expert.layers.7.input_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.3882643595337868,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.7.post_attention_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.355075940489769,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.8.self_attn.q_proj": {
+   "act_dispersion": 1.2844857325679377,
+   "act_kurtosis": 49.21648336711683,
+   "act_rel_err": 0.41178159941183895,
+   "out_rel_err": 0.25940389601807845,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 2048,
+   "params": 2097152
+  },
+  "gemma_expert.layers.8.self_attn.k_proj": {
+   "act_dispersion": 1.2844857325679377,
+   "act_kurtosis": 49.21648336711683,
+   "act_rel_err": 0.41178159941183895,
+   "out_rel_err": 0.23956518879062252,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.8.self_attn.v_proj": {
+   "act_dispersion": 1.2844857325679377,
+   "act_kurtosis": 49.21648336711683,
+   "act_rel_err": 0.41178159941183895,
+   "out_rel_err": 0.2529976776555965,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.8.self_attn.o_proj": {
+   "act_dispersion": 1.2495401231866134,
+   "act_kurtosis": 13.814601261992204,
+   "act_rel_err": 0.2515275935593404,
+   "out_rel_err": 0.14644508850025503,
+   "calls": 380,
+   "in_features": 2048,
+   "out_features": 1024,
+   "params": 2097152
+  },
+  "gemma_expert.layers.8.mlp.gate_proj": {
+   "act_dispersion": 1.4705745100975036,
+   "act_kurtosis": 12.459871763932078,
+   "act_rel_err": 0.2500362228013967,
+   "out_rel_err": 0.16121533881676825,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.8.mlp.up_proj": {
+   "act_dispersion": 1.4705745100975036,
+   "act_kurtosis": 12.459871763932078,
+   "act_rel_err": 0.2500362228013967,
+   "out_rel_err": 0.19107457144480003,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.8.mlp.down_proj": {
+   "act_dispersion": 2.3019315515693863,
+   "act_kurtosis": 689.3841838635897,
+   "act_rel_err": 0.482357420027256,
+   "out_rel_err": 0.3821511536836624,
+   "calls": 380,
+   "in_features": 4096,
+   "out_features": 1024,
+   "params": 4194304
+  },
+  "gemma_expert.layers.8.input_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.4074425533413887,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.8.post_attention_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.35678629130125045,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.9.self_attn.q_proj": {
+   "act_dispersion": 1.483794859835976,
+   "act_kurtosis": 21.627481751692923,
+   "act_rel_err": 0.30789813293438206,
+   "out_rel_err": 0.1547100266147601,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 2048,
+   "params": 2097152
+  },
+  "gemma_expert.layers.9.self_attn.k_proj": {
+   "act_dispersion": 1.483794859835976,
+   "act_kurtosis": 21.627481751692923,
+   "act_rel_err": 0.30789813293438206,
+   "out_rel_err": 0.14050328815846067,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.9.self_attn.v_proj": {
+   "act_dispersion": 1.483794859835976,
+   "act_kurtosis": 21.627481751692923,
+   "act_rel_err": 0.30789813293438206,
+   "out_rel_err": 0.219371500258383,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.9.self_attn.o_proj": {
+   "act_dispersion": 1.457900000873365,
+   "act_kurtosis": 8.63294719520368,
+   "act_rel_err": 0.20334239637381152,
+   "out_rel_err": 0.11836249796967757,
+   "calls": 380,
+   "in_features": 2048,
+   "out_features": 1024,
+   "params": 2097152
+  },
+  "gemma_expert.layers.9.mlp.gate_proj": {
+   "act_dispersion": 1.5225374610800493,
+   "act_kurtosis": 11.978919605204933,
+   "act_rel_err": 0.2427270861832719,
+   "out_rel_err": 0.15986964773190648,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.9.mlp.up_proj": {
+   "act_dispersion": 1.5225374610800493,
+   "act_kurtosis": 11.978919605204933,
+   "act_rel_err": 0.2427270861832719,
+   "out_rel_err": 0.18919157970108483,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.9.mlp.down_proj": {
+   "act_dispersion": 2.1654687379535877,
+   "act_kurtosis": 514.040225581119,
+   "act_rel_err": 0.48277774257095235,
+   "out_rel_err": 0.38779801812611125,
+   "calls": 380,
+   "in_features": 4096,
+   "out_features": 1024,
+   "params": 4194304
+  },
+  "gemma_expert.layers.9.input_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.3935801133513451,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.9.post_attention_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.3610269412398338,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.10.self_attn.q_proj": {
+   "act_dispersion": 1.126091212347934,
+   "act_kurtosis": 21.46745070156298,
+   "act_rel_err": 0.3341403849815067,
+   "out_rel_err": 0.18829778962229426,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 2048,
+   "params": 2097152
+  },
+  "gemma_expert.layers.10.self_attn.k_proj": {
+   "act_dispersion": 1.126091212347934,
+   "act_kurtosis": 21.46745070156298,
+   "act_rel_err": 0.3341403849815067,
+   "out_rel_err": 0.1676999448553512,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.10.self_attn.v_proj": {
+   "act_dispersion": 1.126091212347934,
+   "act_kurtosis": 21.46745070156298,
+   "act_rel_err": 0.3341403849815067,
+   "out_rel_err": 0.22206930874993927,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.10.self_attn.o_proj": {
+   "act_dispersion": 1.7152976023523432,
+   "act_kurtosis": 13.402767955629448,
+   "act_rel_err": 0.2341562827166758,
+   "out_rel_err": 0.14066399496636892,
+   "calls": 380,
+   "in_features": 2048,
+   "out_features": 1024,
+   "params": 2097152
+  },
+  "gemma_expert.layers.10.mlp.gate_proj": {
+   "act_dispersion": 1.4544975418793529,
+   "act_kurtosis": 10.806151221927843,
+   "act_rel_err": 0.23055304092796225,
+   "out_rel_err": 0.1430601915050494,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.10.mlp.up_proj": {
+   "act_dispersion": 1.4544975418793529,
+   "act_kurtosis": 10.806151221927843,
+   "act_rel_err": 0.23055304092796225,
+   "out_rel_err": 0.17742383315374977,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.10.mlp.down_proj": {
+   "act_dispersion": 2.0121476477698277,
+   "act_kurtosis": 381.2378168608013,
+   "act_rel_err": 0.4506224184444076,
+   "out_rel_err": 0.3491382146352216,
+   "calls": 380,
+   "in_features": 4096,
+   "out_features": 1024,
+   "params": 4194304
+  },
+  "gemma_expert.layers.10.input_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.4224321186542511,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.10.post_attention_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.37489640563726423,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.11.self_attn.q_proj": {
+   "act_dispersion": 1.3781480833103783,
+   "act_kurtosis": 40.995804405212404,
+   "act_rel_err": 0.3502212545589397,
+   "out_rel_err": 0.36421856621378346,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 2048,
+   "params": 2097152
+  },
+  "gemma_expert.layers.11.self_attn.k_proj": {
+   "act_dispersion": 1.3781480833103783,
+   "act_kurtosis": 40.995804405212404,
+   "act_rel_err": 0.3502212545589397,
+   "out_rel_err": 0.35399038462262405,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.11.self_attn.v_proj": {
+   "act_dispersion": 1.3781480833103783,
+   "act_kurtosis": 40.995804405212404,
+   "act_rel_err": 0.3502212545589397,
+   "out_rel_err": 0.1600241399125049,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.11.self_attn.o_proj": {
+   "act_dispersion": 1.3080888958353745,
+   "act_kurtosis": 13.467518294484991,
+   "act_rel_err": 0.22457899698301365,
+   "out_rel_err": 0.156832703849987,
+   "calls": 380,
+   "in_features": 2048,
+   "out_features": 1024,
+   "params": 2097152
+  },
+  "gemma_expert.layers.11.mlp.gate_proj": {
+   "act_dispersion": 1.4731250719020241,
+   "act_kurtosis": 12.485284113883973,
+   "act_rel_err": 0.2481987038725301,
+   "out_rel_err": 0.16136451614530464,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.11.mlp.up_proj": {
+   "act_dispersion": 1.4731250719020241,
+   "act_kurtosis": 12.485284113883973,
+   "act_rel_err": 0.2481987038725301,
+   "out_rel_err": 0.19700987782133253,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.11.mlp.down_proj": {
+   "act_dispersion": 2.6173563932117663,
+   "act_kurtosis": 226.7014363238686,
+   "act_rel_err": 0.45394664202865803,
+   "out_rel_err": 0.34825349034447417,
+   "calls": 380,
+   "in_features": 4096,
+   "out_features": 1024,
+   "params": 4194304
+  },
+  "gemma_expert.layers.11.input_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.42236404716968534,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.11.post_attention_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.38265431225299834,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.12.self_attn.q_proj": {
+   "act_dispersion": 1.7254930530723773,
+   "act_kurtosis": 19.82469428714953,
+   "act_rel_err": 0.28997578122898154,
+   "out_rel_err": 0.15221430688704315,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 2048,
+   "params": 2097152
+  },
+  "gemma_expert.layers.12.self_attn.k_proj": {
+   "act_dispersion": 1.7254930530723773,
+   "act_kurtosis": 19.82469428714953,
+   "act_rel_err": 0.28997578122898154,
+   "out_rel_err": 0.11233197638863011,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.12.self_attn.v_proj": {
+   "act_dispersion": 1.7254930530723773,
+   "act_kurtosis": 19.82469428714953,
+   "act_rel_err": 0.28997578122898154,
+   "out_rel_err": 0.12178527799091841,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.12.self_attn.o_proj": {
+   "act_dispersion": 1.256945350295619,
+   "act_kurtosis": 8.803046653145238,
+   "act_rel_err": 0.21088468859854498,
+   "out_rel_err": 0.12706451594437423,
+   "calls": 380,
+   "in_features": 2048,
+   "out_features": 1024,
+   "params": 2097152
+  },
+  "gemma_expert.layers.12.mlp.gate_proj": {
+   "act_dispersion": 1.3576675120152926,
+   "act_kurtosis": 9.445810944155642,
+   "act_rel_err": 0.21920903736823483,
+   "out_rel_err": 0.15392439188925844,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.12.mlp.up_proj": {
+   "act_dispersion": 1.3576675120152926,
+   "act_kurtosis": 9.445810944155642,
+   "act_rel_err": 0.21920903736823483,
+   "out_rel_err": 0.17085051638515372,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.12.mlp.down_proj": {
+   "act_dispersion": 1.6399293369368504,
+   "act_kurtosis": 165.49751480504085,
+   "act_rel_err": 0.4370447448209712,
+   "out_rel_err": 0.3135921851584786,
+   "calls": 380,
+   "in_features": 4096,
+   "out_features": 1024,
+   "params": 4194304
+  },
+  "gemma_expert.layers.12.input_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.4328325778245926,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.12.post_attention_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.3904741659760475,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.13.self_attn.q_proj": {
+   "act_dispersion": 1.466084189164011,
+   "act_kurtosis": 10.599259274884274,
+   "act_rel_err": 0.24088384371839072,
+   "out_rel_err": 0.14141949948511626,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 2048,
+   "params": 2097152
+  },
+  "gemma_expert.layers.13.self_attn.k_proj": {
+   "act_dispersion": 1.466084189164011,
+   "act_kurtosis": 10.599259274884274,
+   "act_rel_err": 0.24088384371839072,
+   "out_rel_err": 0.12505201946355796,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.13.self_attn.v_proj": {
+   "act_dispersion": 1.466084189164011,
+   "act_kurtosis": 10.599259274884274,
+   "act_rel_err": 0.24088384371839072,
+   "out_rel_err": 0.14984413908892555,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.13.self_attn.o_proj": {
+   "act_dispersion": 1.4813677081936285,
+   "act_kurtosis": 11.743189494233382,
+   "act_rel_err": 0.23387277675302406,
+   "out_rel_err": 0.15912998138289702,
+   "calls": 380,
+   "in_features": 2048,
+   "out_features": 1024,
+   "params": 2097152
+  },
+  "gemma_expert.layers.13.mlp.gate_proj": {
+   "act_dispersion": 1.331858584127928,
+   "act_kurtosis": 9.015787197414197,
+   "act_rel_err": 0.21702033591113593,
+   "out_rel_err": 0.15435784698316926,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.13.mlp.up_proj": {
+   "act_dispersion": 1.331858584127928,
+   "act_kurtosis": 9.015787197414197,
+   "act_rel_err": 0.21702033591113593,
+   "out_rel_err": 0.16916572879019537,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.13.mlp.down_proj": {
+   "act_dispersion": 2.2253221006769883,
+   "act_kurtosis": 188.33655861302427,
+   "act_rel_err": 0.4188595825904294,
+   "out_rel_err": 0.29654903172662384,
+   "calls": 380,
+   "in_features": 4096,
+   "out_features": 1024,
+   "params": 4194304
+  },
+  "gemma_expert.layers.13.input_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.4414594829082489,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.13.post_attention_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.3956601068377495,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.14.self_attn.q_proj": {
+   "act_dispersion": 1.3851293642269937,
+   "act_kurtosis": 9.174466183311061,
+   "act_rel_err": 0.21826161973570524,
+   "out_rel_err": 0.13512926209521922,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 2048,
+   "params": 2097152
+  },
+  "gemma_expert.layers.14.self_attn.k_proj": {
+   "act_dispersion": 1.3851293642269937,
+   "act_kurtosis": 9.174466183311061,
+   "act_rel_err": 0.21826161973570524,
+   "out_rel_err": 0.10522857135847995,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.14.self_attn.v_proj": {
+   "act_dispersion": 1.3851293642269937,
+   "act_kurtosis": 9.174466183311061,
+   "act_rel_err": 0.21826161973570524,
+   "out_rel_err": 0.17776734428970437,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.14.self_attn.o_proj": {
+   "act_dispersion": 1.5277327951632047,
+   "act_kurtosis": 14.538466501235963,
+   "act_rel_err": 0.23814438487354078,
+   "out_rel_err": 0.12786755424581076,
+   "calls": 380,
+   "in_features": 2048,
+   "out_features": 1024,
+   "params": 2097152
+  },
+  "gemma_expert.layers.14.mlp.gate_proj": {
+   "act_dispersion": 1.300355522569857,
+   "act_kurtosis": 7.444621910546955,
+   "act_rel_err": 0.19117521380907612,
+   "out_rel_err": 0.13241769218523253,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.14.mlp.up_proj": {
+   "act_dispersion": 1.300355522569857,
+   "act_kurtosis": 7.444621910546955,
+   "act_rel_err": 0.19117521380907612,
+   "out_rel_err": 0.15166276363950026,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.14.mlp.down_proj": {
+   "act_dispersion": 2.200591982352106,
+   "act_kurtosis": 374.7453648215846,
+   "act_rel_err": 0.43272204493221483,
+   "out_rel_err": 0.3558183561030187,
+   "calls": 380,
+   "in_features": 4096,
+   "out_features": 1024,
+   "params": 4194304
+  },
+  "gemma_expert.layers.14.input_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.45364167392253874,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.14.post_attention_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.40119871199131013,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.15.self_attn.q_proj": {
+   "act_dispersion": 1.3729712608613467,
+   "act_kurtosis": 9.625035155446906,
+   "act_rel_err": 0.2207289300074703,
+   "out_rel_err": 0.15545471440020361,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 2048,
+   "params": 2097152
+  },
+  "gemma_expert.layers.15.self_attn.k_proj": {
+   "act_dispersion": 1.3729712608613467,
+   "act_kurtosis": 9.625035155446906,
+   "act_rel_err": 0.2207289300074703,
+   "out_rel_err": 0.1484506517452629,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.15.self_attn.v_proj": {
+   "act_dispersion": 1.3729712608613467,
+   "act_kurtosis": 9.625035155446906,
+   "act_rel_err": 0.2207289300074703,
+   "out_rel_err": 0.12084661159468324,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.15.self_attn.o_proj": {
+   "act_dispersion": 1.3344132875141343,
+   "act_kurtosis": 6.906049772312767,
+   "act_rel_err": 0.1940003398609789,
+   "out_rel_err": 0.11812548911885211,
+   "calls": 380,
+   "in_features": 2048,
+   "out_features": 1024,
+   "params": 2097152
+  },
+  "gemma_expert.layers.15.mlp.gate_proj": {
+   "act_dispersion": 1.3868162029667905,
+   "act_kurtosis": 6.982614621363188,
+   "act_rel_err": 0.19052751017244238,
+   "out_rel_err": 0.12668945695224562,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.15.mlp.up_proj": {
+   "act_dispersion": 1.3868162029667905,
+   "act_kurtosis": 6.982614621363188,
+   "act_rel_err": 0.19052751017244238,
+   "out_rel_err": 0.15190495287901476,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.15.mlp.down_proj": {
+   "act_dispersion": 2.1321014906230724,
+   "act_kurtosis": 231.00561027526857,
+   "act_rel_err": 0.4009491470299269,
+   "out_rel_err": 0.3404723238003881,
+   "calls": 380,
+   "in_features": 4096,
+   "out_features": 1024,
+   "params": 4194304
+  },
+  "gemma_expert.layers.15.input_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.4363051369786263,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.15.post_attention_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.3785151749849319,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.16.self_attn.q_proj": {
+   "act_dispersion": 1.1057102830786454,
+   "act_kurtosis": 74.70099312631707,
+   "act_rel_err": 0.4678226177629672,
+   "out_rel_err": 0.37243885233214025,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 2048,
+   "params": 2097152
+  },
+  "gemma_expert.layers.16.self_attn.k_proj": {
+   "act_dispersion": 1.1057102830786454,
+   "act_kurtosis": 74.70099312631707,
+   "act_rel_err": 0.4678226177629672,
+   "out_rel_err": 0.3392212746174712,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.16.self_attn.v_proj": {
+   "act_dispersion": 1.1057102830786454,
+   "act_kurtosis": 74.70099312631707,
+   "act_rel_err": 0.4678226177629672,
+   "out_rel_err": 0.3176760921352788,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.16.self_attn.o_proj": {
+   "act_dispersion": 1.4971146392194847,
+   "act_kurtosis": 11.097094220864145,
+   "act_rel_err": 0.22305282695513023,
+   "out_rel_err": 0.09651683992461155,
+   "calls": 380,
+   "in_features": 2048,
+   "out_features": 1024,
+   "params": 2097152
+  },
+  "gemma_expert.layers.16.mlp.gate_proj": {
+   "act_dispersion": 1.1516374986422688,
+   "act_kurtosis": 13.968508727926958,
+   "act_rel_err": 0.2736087787700327,
+   "out_rel_err": 0.14242677288620095,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.16.mlp.up_proj": {
+   "act_dispersion": 1.1516374986422688,
+   "act_kurtosis": 13.968508727926958,
+   "act_rel_err": 0.2736087787700327,
+   "out_rel_err": 0.18441350667884476,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.16.mlp.down_proj": {
+   "act_dispersion": 1.6281515915142863,
+   "act_kurtosis": 367.4627096878855,
+   "act_rel_err": 0.36483758884040934,
+   "out_rel_err": 0.3413619670428728,
+   "calls": 380,
+   "in_features": 4096,
+   "out_features": 1024,
+   "params": 4194304
+  },
+  "gemma_expert.layers.16.input_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.4513547420501709,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.16.post_attention_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.4342041745781898,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.17.self_attn.q_proj": {
+   "act_dispersion": 1.1091595125825782,
+   "act_kurtosis": 65.33190398969148,
+   "act_rel_err": 0.4576499690350733,
+   "out_rel_err": 0.3397295288349453,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 2048,
+   "params": 2097152
+  },
+  "gemma_expert.layers.17.self_attn.k_proj": {
+   "act_dispersion": 1.1091595125825782,
+   "act_kurtosis": 65.33190398969148,
+   "act_rel_err": 0.4576499690350733,
+   "out_rel_err": 0.3011522729930125,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.17.self_attn.v_proj": {
+   "act_dispersion": 1.1091595125825782,
+   "act_kurtosis": 65.33190398969148,
+   "act_rel_err": 0.4576499690350733,
+   "out_rel_err": 0.22469004776917006,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 256,
+   "params": 262144
+  },
+  "gemma_expert.layers.17.self_attn.o_proj": {
+   "act_dispersion": 1.3452975295091931,
+   "act_kurtosis": 5.468074128502294,
+   "act_rel_err": 0.15617799315797656,
+   "out_rel_err": 0.06562791914728126,
+   "calls": 380,
+   "in_features": 2048,
+   "out_features": 1024,
+   "params": 2097152
+  },
+  "gemma_expert.layers.17.mlp.gate_proj": {
+   "act_dispersion": 1.0981764627130408,
+   "act_kurtosis": 198.5734405116031,
+   "act_rel_err": 0.5714423797632519,
+   "out_rel_err": 0.4283780919878106,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.17.mlp.up_proj": {
+   "act_dispersion": 1.0981764627130408,
+   "act_kurtosis": 198.5734405116031,
+   "act_rel_err": 0.5714423797632519,
+   "out_rel_err": 0.4129165898028173,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 4096,
+   "params": 4194304
+  },
+  "gemma_expert.layers.17.mlp.down_proj": {
+   "act_dispersion": 1.7427011919649025,
+   "act_kurtosis": 116.50706050270482,
+   "act_rel_err": 0.34917079006370744,
+   "out_rel_err": 0.2505104437862572,
+   "calls": 380,
+   "in_features": 4096,
+   "out_features": 1024,
+   "params": 4194304
+  },
+  "gemma_expert.layers.17.input_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.45470855832099916,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.layers.17.post_attention_layernorm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.46002287566661837,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "gemma_expert.norm.dense": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 283.66831665039064,
+   "act_rel_err": 0.34694497287273407,
+   "out_rel_err": 0.377112503349781,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 3072,
+   "params": 3145728
+  },
+  "action_in_proj": {
+   "act_dispersion": 1.4919673505582307,
+   "act_kurtosis": 5.166003748617674,
+   "act_rel_err": 0.10551752267699492,
+   "out_rel_err": 0.1302761177091222,
+   "calls": 380,
+   "in_features": 32,
+   "out_features": 1024,
+   "params": 32768
+  },
+  "action_out_proj": {
+   "act_dispersion": 1.5089969666380632,
+   "act_kurtosis": 21.79727587197956,
+   "act_rel_err": 0.24682913128482667,
+   "out_rel_err": 0.09570293918644127,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 32,
+   "params": 32768
+  },
+  "time_mlp_in": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 1.9213583827018739,
+   "act_rel_err": 0.05563339479267597,
+   "out_rel_err": 0.03107721544802189,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 1024,
+   "params": 1048576
+  },
+  "time_mlp_out": {
+   "act_dispersion": 1.0,
+   "act_kurtosis": 140.02037661075593,
+   "act_rel_err": 0.42890854105353354,
+   "out_rel_err": 0.3971297569572926,
+   "calls": 380,
+   "in_features": 1024,
+   "out_features": 1024,
+   "params": 1048576
+  }
+ }
+}

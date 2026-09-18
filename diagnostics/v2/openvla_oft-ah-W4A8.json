@@ -1,0 +1,66 @@
+{
+ "model": "openvla_oft",
+ "suite": "libero_spatial",
+ "scope": "ah",
+ "preset": "W4A8",
+ "spec": "w4g128asym+a8pt",
+ "provenance": {
+  "checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial",
+  "checkpoint_revision": "6d0231af0e48c5985f1ff86908f4674b84bc049b",
+  "seed": 0,
+  "tasks": [
+   0,
+   1
+  ],
+  "episodes_from": 20,
+  "episodes": 2,
+  "vqb_commit": null,
+  "mujoco": "3.3.2",
+  "torch": "2.2.0+cu121",
+  "python": "3.10.20",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "created": "2026-09-17T15:37:36"
+ },
+ "layers": {
+  "action_head.model.fc1": {
+   "act_dispersion": 1.200208417912747,
+   "act_kurtosis": 8.953682610329162,
+   "act_rel_err": 0.014982796987479037,
+   "out_rel_err": 0.006743772500293686,
+   "calls": 47,
+   "in_features": 28672,
+   "out_features": 4096,
+   "params": 117440512
+  },
+  "action_head.model.mlp_resnet_blocks.0.ffn.1": {
+   "act_dispersion": 1.0090237272546647,
+   "act_kurtosis": 831.5433154816324,
+   "act_rel_err": 0.07393565496548693,
+   "out_rel_err": 0.18090514299717356,
+   "calls": 47,
+   "in_features": 4096,
+   "out_features": 4096,
+   "params": 16777216
+  },
+  "action_head.model.mlp_resnet_blocks.1.ffn.1": {
+   "act_dispersion": 1.0086224586405652,
+   "act_kurtosis": 826.9065110226895,
+   "act_rel_err": 0.07830063348754923,
+   "out_rel_err": 0.19375231006044022,
+   "calls": 47,
+   "in_features": 4096,
+   "out_features": 4096,
+   "params": 16777216
+  },
+  "action_head.model.fc2": {
+   "act_dispersion": 1.0090834663269368,
+   "act_kurtosis": 828.6069206075465,
+   "act_rel_err": 0.06447834901987239,
+   "out_rel_err": 0.21245646666973195,
+   "calls": 47,
+   "in_features": 4096,
+   "out_features": 7,
+   "params": 28672
+  }
+ }
+}

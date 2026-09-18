@@ -1,0 +1,52 @@
+{
+ "model": "openvla_oft",
+ "method": "awq",
+ "preset": "W3",
+ "scope": "llm",
+ "only": null,
+ "exclude": null,
+ "checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial",
+ "quant_report": {
+  "method": "awq",
+  "w_bits": 3,
+  "a_bits": 16,
+  "real_kernel": false,
+  "awq_scale_groups": 128,
+  "awq_clipped": 160,
+  "group_size": 128,
+  "calib_samples": 128
+ },
+ "record": "results/fidelity/openvla_oft/record.npz",
+ "record_meta": {
+  "model": "openvla_oft",
+  "benchmark": "libero",
+  "suite": "libero_spatial",
+  "task_id": 0,
+  "task_name": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate",
+  "episode": 20,
+  "seed": 0,
+  "checkpoint": "moojink/openvla-7b-oft-finetuned-libero-spatial",
+  "success": true,
+  "n_steps": 80,
+  "vqb_commit": null,
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "created": "2026-09-17T15:38:58"
+ },
+ "n_steps": 80,
+ "action_dims": 7,
+ "definition": "mean over steps and the first 7 action dimensions of |a_quantized - a_fullprecision|, actions in the environment's unnormalized units as returned by adapter.act; identical observation sequence fed open-loop after adapter.reset",
+ "mean_abs_dev": 0.014110917490689653,
+ "per_dim_mean_abs_dev": [
+  0.03505530807820227,
+  0.02141405629562379,
+  0.02472135961259752,
+  0.004138995154319853,
+  0.00865224669284324,
+  0.0047944566012408955,
+  0.0
+ ],
+ "max_abs_dev": 0.19393636731064845,
+ "vqb_commit": null,
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "created": "2026-09-17T15:44:23"
+}

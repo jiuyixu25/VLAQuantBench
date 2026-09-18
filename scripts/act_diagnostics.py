@@ -105,6 +105,8 @@ def main() -> None:
     ap.add_argument("--model-kwargs", nargs="*", default=None)
     ap.add_argument("--tasks", nargs="*", type=int, default=[0, 1])
     ap.add_argument("--episodes", type=int, default=2)
+    ap.add_argument("--episodes-from", type=int, default=20,
+                    help="first init-state index (default 20: disjoint from the evaluation states 0-19)")
     ap.add_argument("--device", default="cuda")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--out", required=True)
@@ -132,16 +134,40 @@ def main() -> None:
 
     all_tasks = runner.tasks()
     picked = [all_tasks[i] for i in args.tasks if i < len(all_tasks)]
-    runner.run(adapter, writer=None, tasks=picked, episodes=range(args.episodes))
+    runner.run(adapter, writer=None, tasks=picked,
+               episodes=range(args.episodes_from, args.episodes_from + args.episodes))
     for h in handles:
         h.remove()
 
     rows = {p.name: p.result() for p in probes if p.n}
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
+    import datetime as _dt
+    import platform
+    import torch
+    from vlaquantbench.results import git_commit, gpu_name
+    try:
+        import mujoco
+        mujoco_version = mujoco.__version__
+    except Exception:  # pragma: no cover
+        mujoco_version = None
+    try:  # resolve the exact checkpoint revision from the local HF cache when the id is a repo id
+        from huggingface_hub import snapshot_download
+        snap = snapshot_download(args.checkpoint, local_files_only=True)
+        checkpoint_revision = Path(snap).name
+    except Exception:
+        checkpoint_revision = None
     out.write_text(json.dumps(
         {"model": args.model, "suite": args.suite, "scope": args.scope,
-         "preset": args.preset.upper(), "spec": spec.describe(), "layers": rows}, indent=1))
+         "preset": args.preset.upper(), "spec": spec.describe(),
+         "provenance": {
+             "checkpoint": args.checkpoint, "checkpoint_revision": checkpoint_revision,
+             "seed": args.seed, "tasks": [t.task_id for t in picked],
+             "episodes_from": args.episodes_from, "episodes": args.episodes,
+             "vqb_commit": git_commit(), "mujoco": mujoco_version, "torch": torch.__version__,
+             "python": platform.python_version(), "gpu": gpu_name(),
+             "created": _dt.datetime.now().isoformat(timespec="seconds")},
+         "layers": rows}, indent=1))
 
     rank = sorted(rows.items(), key=lambda kv: -kv[1]["out_rel_err"])
     print(f"\n{'layer':60s} {'out_rel_err':>11s} {'act_rel_err':>11s} "

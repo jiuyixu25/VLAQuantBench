@@ -8,7 +8,7 @@ VLAQuantBench measures the thing that actually matters instead: **task success w
 quantized policy is rolled out in the simulator under the benchmark's own protocol.**
 
 Every number in the paper is reproducible from this repository. The per-episode records
-of all 332 evaluation cells (89,058 rollouts) are included, and every table is regenerated
+of all 370 evaluation cells (96,468 rollouts) are included, and every table is regenerated
 from those records by a script — nothing is transcribed by hand.
 
 ```bash
@@ -26,7 +26,7 @@ python scripts/verify_cells.py            # independent audit of every shipped c
 | **Formats** | W2/W3/W4/W8 weight-only; W4A4, W4A6, W4A8, W8A8 with activations; per-group / per-channel, symmetric / asymmetric |
 | **Scopes** | end-to-end · one component (VE / MP / LLM / AH) · a layer group · a single named layer |
 | **Methods** | RTN anchor, plus AWQ, NF4, LLM.int8(), SmoothQuant on the LLM backbone, in both fake-quant and real-kernel paths |
-| **Scale** | 332 cells, 89,058 closed-loop episodes, 200 episodes per cell with 95% Wilson intervals |
+| **Scale** | 370 cells, 96,468 closed-loop episodes, 200 episodes per cell with 95% Wilson intervals (X-VLA 190; five VLABench W4A4 tracks at a documented reduced budget) |
 
 ## Three findings the code reproduces
 
@@ -52,10 +52,11 @@ bash scripts/env/setup_pi05.sh        # creates the env, clones upstream, instal
 pip install -e .                      # or install into an environment you already have
 ```
 
-Pin `mujoco==3.3.2`. Versions ≥3.4.0 change box–box collision resolution so that one
-LIBERO-Spatial task's stored initial state no longer settles into its intended
-configuration — the failure is invisible in aggregate and costs 3–9 suite points. See
-[`docs/protocol.md`](docs/protocol.md).
+Pin `mujoco==3.3.2` for OpenVLA-OFT and the π models. Versions ≥3.4.0 change box–box
+collision resolution so that one LIBERO-Spatial task's stored initial state no longer settles
+into its intended configuration — the failure is invisible in aggregate and costs 3–9 suite
+points. The X-VLA environment pins MuJoCo 3.1.6, which predates the change; the version used
+is recorded in every `diagnostics/v2/*.json`. See [`docs/protocol.md`](docs/protocol.md).
 
 ## Reproducing a table
 
@@ -67,7 +68,16 @@ python scripts/ablation_tables.py              # within-component decomposition
 python scripts/precision_budget.py             # per-component activation-bit budgets
 python scripts/diag_vs_damage.py               # activation statistics vs. measured damage
 python scripts/profile_kernels.py              # real-kernel latency and memory
+python scripts/action_fidelity.py record ...   # paired-observation action fidelity: record one
+python scripts/action_fidelity.py replay ...   #   full-precision episode, replay it quantized
 ```
+
+Activation calibration (`vqb run --act-calib ...`) collects its statistics on init states
+starting at 20 by default (`--act-calib-from`), disjoint from the evaluation states 0–19; the
+cells collected in August 2026 used `--act-calib-from 0`, and the three-set replication in
+`results/libero/libero_spatial/pi05/calib_set*` shows the choice does not change the outcome.
+Every run header records the calibration components, episode range, seed, smoothing strength,
+clip quantile, cache tag, and code revision, and the statistics cache is keyed on all of them.
 
 ## Results layout
 
@@ -80,7 +90,10 @@ quantization report (layers and parameters actually quantized), seed, git commit
 GPU. Every following line is one episode: task, episode index, seed, success, steps, wall
 time, per-benchmark scalar (CALVIN subtasks, VLABench progress), policy and inference
 latency, peak VRAM. Runs are resumable and a header mismatch is refused.
-`results/summary.csv` carries one row per cell with its Wilson interval.
+`results/summary.csv` carries one row per cell with its Wilson interval. Real-kernel profiling
+runs (`results/latency/`), the paired-observation fidelity test (`results/fidelity/`), and the
+activation diagnostics with full provenance (`diagnostics/v2/`) are described in
+[`results/README.md`](results/README.md).
 
 ## Evaluation-stack pitfalls
 
