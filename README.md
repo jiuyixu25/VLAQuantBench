@@ -47,7 +47,7 @@ core package is installed **into each model's own environment** rather than the 
 round. `scripts/env/` pins the upstream commit for each stack.
 
 ```bash
-git clone https://github.com/OWNER/VLAQuantBench && cd VLAQuantBench
+git clone https://github.com/jiuyixu25/VLAQuantBench && cd VLAQuantBench
 bash scripts/env/setup_pi05.sh        # creates the env, clones upstream, installs this package
 pip install -e .                      # or install into an environment you already have
 ```

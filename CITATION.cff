@@ -26,7 +26,7 @@ authors:
     given-names: Yangming
     affiliation: Colorado School of Mines
 license: MIT
-repository-code: "https://github.com/OWNER/VLAQuantBench"
+repository-code: "https://github.com/jiuyixu25/VLAQuantBench"
 keywords:
   - vision-language-action models
   - post-training quantization
