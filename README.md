@@ -8,8 +8,12 @@ VLAQuantBench measures the thing that actually matters instead: **task success w
 quantized policy is rolled out in the simulator under the benchmark's own protocol.**
 
 Every number in the paper is reproducible from this repository. The per-episode records
-of all 370 evaluation cells (96,468 rollouts) are included, and every table is regenerated
-from those records by a script — nothing is transcribed by hand.
+of all 370 evaluation cells (96,468 rollouts) are included. The paper analyzes the
+manifest-defined subset of 363 runs (85,374 simulation episodes): the seven SIMPLER
+variant-aggregation runs are shipped but excluded because their per-variant coverage is
+unequal. Runs include baselines and evaluation-seed repetitions, so 363 is not a count of
+distinct precision assignments. Every table is regenerated from the records by a script —
+nothing is transcribed by hand.
 
 ```bash
 vqb run --model pi05 --benchmark libero --suite libero_spatial --preset W4A4 --scope ah
@@ -26,19 +30,24 @@ python scripts/verify_cells.py            # independent audit of every shipped c
 | **Formats** | W2/W3/W4/W8 weight-only; W4A4, W4A6, W4A8, W8A8 with activations; per-group / per-channel, symmetric / asymmetric |
 | **Scopes** | end-to-end · one component (VE / MP / LLM / AH) · a layer group · a single named layer |
 | **Methods** | RTN anchor, plus AWQ, NF4, LLM.int8(), SmoothQuant on the LLM backbone, in both fake-quant and real-kernel paths |
-| **Scale** | 370 cells, 96,468 closed-loop episodes, 200 episodes per cell with 95% Wilson intervals (X-VLA 190; five VLABench W4A4 tracks at a documented reduced budget) |
+| **Scale** | 370 shipped cells / 96,468 closed-loop episodes; the paper's manifest subset is 363 runs / 85,374 simulation episodes. 200 episodes per LIBERO cell with 95% Wilson intervals (X-VLA 190); budgets and native metrics differ per benchmark (five VLABench W4A4 tracks at a documented reduced budget) |
 
-## Three findings the code reproduces
+## Main findings (all regenerated from the shipped records)
 
-1. **Sensitivity is not additive.** On π0.5's action head at W4A4, attention alone costs
-   1.0 points and the adaRMS modulators alone 5.5, but the two together cost 97.5.
-   Quantizing 41 *more* layers on top of a collapsed 126-layer subset recovers 63.5 points.
-2. **Collapse is localized, and architectural role does not predict where.** One
-   28,672-parameter projection carries OpenVLA-OFT's entire activation-quantization
-   failure, while the same-role projection in π0.5 is free to quantize.
-3. **Proxies fail measurably.** Two OFT layer groups with kurtosis 834 and 835 differ by
-   74 success points; the statistic-to-damage rank correlation inverts on X-VLA; and AWQ
-   is 2.2× closer to the full-precision actions than RTN with no gain in task success.
+1. **More quantized layers can improve task success.** Expanding a π0.5 W4A4 action-head
+   scope from 126 to 167 layers raises LIBERO-Spatial success from 7.0% to 70.5%
+   (baseline 99.0%). The recovery repeats on LIBERO-Object at three evaluation seeds
+   (1.0/0.0/2.0% → 60.0/63.0/61.0%).
+2. **Isolated success losses can miss joint failure.** On the same action head, attention
+   alone costs 1.0 percentage points and the adaRMS modulators alone 5.5, but their
+   108-layer union costs 97.5. This is non-additivity in task success; the underlying
+   numerical mechanism remains open.
+3. **Local activation statistics can miss large sensitivity differences.** OpenVLA-OFT's
+   28,672-parameter output projection and its residual-layer group have activation
+   kurtosis 834.3 and 835.3, yet W4A8 success is 18.0% and 99.5%, an 81.5-point gap.
+   On one held-out OFT trajectory, AWQ has 1.44× lower action MAE than RTN at W4
+   (1.15× at W3), while near-ceiling task scores do not resolve whether that fidelity
+   gain changes success.
 
 ## Install
 
