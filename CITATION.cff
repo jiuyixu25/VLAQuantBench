@@ -6,13 +6,17 @@ abstract: >-
   vision-language-action policies by closed-loop task success under each
   benchmark's official protocol, across four models, four simulation families,
   seven bit settings, and quantization scopes from end-to-end down to single
-  layers.
+  layers, with same-observation replay, calibration and task-clustered
+  uncertainty controls.
+date-released: "2026-09-21"
+version: "1.1.0"
 authors:
   - family-names: Xu
     given-names: Jiuyi
     affiliation: Colorado School of Mines
   - family-names: Jin
     given-names: Qing
+    affiliation: Independent Researcher
   - family-names: Chen
     given-names: Meida
     affiliation: University of Central Florida

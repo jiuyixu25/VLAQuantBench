@@ -2,19 +2,24 @@
 
 **Closed-loop evaluation of post-training quantization for vision–language–action models.**
 
+<p align="center"><img src="docs/figures/design_overview.png" width="520" alt="How VLAQuantBench studies quantization: four VLA models, a fixed RTN quantizer over numerical formats and quantization scopes, isolated versus joint interventions, closed-loop evaluation, and task-success / interaction / deployment-cost readouts"></p>
+
 Quantization decisions for VLA policies are usually made with proxy signals — action
 error against the full-precision policy, or calibration-time activation statistics.
 VLAQuantBench measures the thing that actually matters instead: **task success when the
-quantized policy is rolled out in the simulator under the benchmark's own protocol.**
+quantized policy is rolled out in the simulator under the benchmark's own protocol**, and it
+tests quantized layer groups both in isolation and jointly, because the two do not agree.
 
-Every number in the paper is reproducible from this repository. The per-episode records
-of all 417 evaluation cells (105,868 closed-loop episodes) are included, together with the
-summaries of the same-observation replay study. The paper analyzes a manifest-defined subset
-(its appendix lists the files and counts); the seven SIMPLER variant-aggregation runs, one
-broader-pattern exclusion trial (`ablate-W3-e2e-no_any_fc2`) and the replay reference
-trajectories are shipped but outside that subset. Cells include baselines and evaluation-seed
-repetitions, so the cell count is not a count of distinct precision assignments. Every table
-is regenerated from the records by a script — nothing is transcribed by hand.
+Every number in the paper is reproducible from this repository. The per-episode records of
+all 417 evaluation cells (105,868 closed-loop episodes) are included, together with the
+summaries of the same-observation replay study. The paper analyzes 409 of these runs
+(94,574 episodes): everything except the seven SIMPLER variant-aggregation runs, whose
+per-variant coverage is unequal, and one superseded exclusion trial
+(`ablate-W3-e2e-no_any_fc2`). Cells include baselines and evaluation-seed repetitions, so the
+count is not a count of distinct precision assignments. Every table is regenerated from the
+records by a script — nothing is transcribed by hand — and
+[`docs/paper_map.md`](docs/paper_map.md) lists, for every table and figure of the paper, the
+result files and the script behind it.
 
 ```bash
 vqb run --model pi05 --benchmark libero --suite libero_spatial --preset W4A4 --scope ah
@@ -31,9 +36,11 @@ python scripts/verify_cells.py            # independent audit of every shipped c
 | **Formats** | W2/W3/W4/W8 weight-only; W4A4, W4A6, W4A8, W8A8 with activations; per-group / per-channel, symmetric / asymmetric |
 | **Scopes** | end-to-end · one component (VE / MP / LLM / AH) · a layer group · a single named layer |
 | **Methods** | RTN anchor, plus AWQ, NF4, LLM.int8(), SmoothQuant on the LLM backbone, in both fake-quant and real-kernel paths |
-| **Scale** | 417 shipped cells / 105,868 closed-loop episodes (`results/summary.csv`); the paper analyzes a manifest-defined subset. 200 episodes per LIBERO cell with 95% Wilson intervals (X-VLA 190); budgets and native metrics differ per benchmark (five VLABench W4A4 tracks at a documented reduced budget) |
+| **Scale** | 417 shipped cells / 105,868 closed-loop episodes (`results/summary.csv`); the paper analyzes 409 runs / 94,574 episodes. 200 episodes per LIBERO cell with 95% Wilson intervals (X-VLA 190); budgets and native metrics differ per benchmark (five VLABench W4A4 tracks at a documented reduced budget) |
 
 ## Main findings (all regenerated from the shipped records)
+
+<p align="center"><img src="docs/figures/scope_recovery.png" width="760" alt="Uncalibrated RTN W4A4 action-head interventions in pi0.5: isolated groups versus their union, and success along nested scopes with the 126-to-167-layer recovery"></p>
 
 1. **Isolated sensitivity is not compositional.** On π0.5's action head at W4A4, attention
    alone costs 1.0 percentage points and the adaRMS modulators alone 5.5, but their 108-layer
@@ -62,6 +69,12 @@ python scripts/verify_cells.py            # independent audit of every shipped c
    action MAE than RTN at W4 (1.15× at W3) while near-ceiling task success cannot resolve a
    difference; task-clustered bootstrap intervals (`scripts/clustered_table.py`) show which
    headline contrasts survive task-level clustering and which (π0 Spatial W4) do not.
+
+<p align="center"><img src="docs/figures/replay_formats.png" width="760" alt="Same-observation, same-noise replay: normalized chunk error along nested scopes at W4, W4A8 and W4A4, and the union error versus the sum of isolated errors"></p>
+
+The replay figure is the control behind findings 1 and 2: with identical observations and
+identical flow-matching noise, the 126-to-167-layer error reversal and the super-additive union
+error appear only at W4A4 (norm ratio 2.90 versus 0.80 at W4 and W4A8).
 
 ## Install
 
@@ -159,4 +172,13 @@ that had quantized nothing and re-measured the baseline.
 
 ## Citation
 
-See [`CITATION.cff`](CITATION.cff). Released under the [MIT License](LICENSE).
+```bibtex
+@misc{xu2026vlaquantbench,
+  title  = {VLAQuantBench: Closed-Loop Evaluation of Post-Training Quantization for Vision-Language-Action Models},
+  author = {Xu, Jiuyi and Jin, Qing and Chen, Meida and Wang, Song and Sui, Yang and Shi, Yangming},
+  year   = {2026},
+  note   = {arXiv preprint}
+}
+```
+
+See also [`CITATION.cff`](CITATION.cff). Released under the [MIT License](LICENSE).
