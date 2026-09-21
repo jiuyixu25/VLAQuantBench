@@ -2,7 +2,7 @@
 
 **Closed-loop evaluation of post-training quantization for vision–language–action models.**
 
-<p align="center"><img src="docs/figures/design_overview.png" width="520" alt="How VLAQuantBench studies quantization: four VLA models, a fixed RTN quantizer over numerical formats and quantization scopes, isolated versus joint interventions, closed-loop evaluation, and task-success / interaction / deployment-cost readouts"></p>
+<p align="center"><img src="docs/figures/overview.png" width="760" alt="Evaluation axes of VLAQuantBench: four VLA models, an RTN anchor over numerical formats, component-to-layer quantization scopes, and four simulation benchmark families plus a real robot"></p>
 
 Quantization decisions for VLA policies are usually made with proxy signals — action
 error against the full-precision policy, or calibration-time activation statistics.
