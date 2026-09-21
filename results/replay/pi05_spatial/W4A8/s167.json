@@ -1,0 +1,250 @@
+{
+ "config": "s167",
+ "model": "pi05",
+ "suite": "libero_spatial",
+ "preset": "W4A8",
+ "scope": "ah",
+ "only": null,
+ "quantized_layers": 167,
+ "quant_report": {
+  "ah": {
+   "layers": 167,
+   "params": 429981696,
+   "mean_rel_mse": null
+  }
+ },
+ "checkpoint": "lerobot/pi05_libero_finetuned_v044",
+ "downproj_layers": [
+  "model.paligemma_with_expert.gemma_expert.model.layers.0.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.1.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.2.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.3.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.4.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.5.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.6.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.7.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.8.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.9.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.10.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.11.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.12.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.13.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.14.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.15.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.16.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.17.mlp.down_proj"
+ ],
+ "downproj_columns": [
+  "tok_absmax_mean",
+  "tok_absmax_p50",
+  "tok_absmax_p99",
+  "tok_absmax_max",
+  "abs_kurtosis",
+  "n_tokens"
+ ],
+ "records": [
+  {
+   "record": "t0_e20.npz",
+   "task_id": 0,
+   "episode": 20,
+   "n_steps": 78,
+   "n_chunks": 8,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0055614364200831145
+  },
+  {
+   "record": "t0_e21.npz",
+   "task_id": 0,
+   "episode": 21,
+   "n_steps": 75,
+   "n_chunks": 8,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.005615468947272304
+  },
+  {
+   "record": "t1_e20.npz",
+   "task_id": 1,
+   "episode": 20,
+   "n_steps": 111,
+   "n_chunks": 12,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.005655484177915924
+  },
+  {
+   "record": "t1_e21.npz",
+   "task_id": 1,
+   "episode": 21,
+   "n_steps": 106,
+   "n_chunks": 11,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.004803611313953376
+  },
+  {
+   "record": "t2_e20.npz",
+   "task_id": 2,
+   "episode": 20,
+   "n_steps": 92,
+   "n_chunks": 10,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.004195983263095248
+  },
+  {
+   "record": "t2_e21.npz",
+   "task_id": 2,
+   "episode": 21,
+   "n_steps": 94,
+   "n_chunks": 10,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.003953657979982492
+  },
+  {
+   "record": "t3_e20.npz",
+   "task_id": 3,
+   "episode": 20,
+   "n_steps": 88,
+   "n_chunks": 9,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.005311158241824302
+  },
+  {
+   "record": "t3_e21.npz",
+   "task_id": 3,
+   "episode": 21,
+   "n_steps": 83,
+   "n_chunks": 9,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.004875635154027951
+  },
+  {
+   "record": "t4_e20.npz",
+   "task_id": 4,
+   "episode": 20,
+   "n_steps": 132,
+   "n_chunks": 14,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0057923610250866725
+  },
+  {
+   "record": "t4_e21.npz",
+   "task_id": 4,
+   "episode": 21,
+   "n_steps": 126,
+   "n_chunks": 13,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.004811834481248079
+  },
+  {
+   "record": "t5_e20.npz",
+   "task_id": 5,
+   "episode": 20,
+   "n_steps": 94,
+   "n_chunks": 10,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0054980989985768105
+  },
+  {
+   "record": "t5_e21.npz",
+   "task_id": 5,
+   "episode": 21,
+   "n_steps": 88,
+   "n_chunks": 9,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.005261920692244931
+  },
+  {
+   "record": "t6_e20.npz",
+   "task_id": 6,
+   "episode": 20,
+   "n_steps": 111,
+   "n_chunks": 12,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.005316330364297301
+  },
+  {
+   "record": "t6_e21.npz",
+   "task_id": 6,
+   "episode": 21,
+   "n_steps": 116,
+   "n_chunks": 12,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.006665264295689071
+  },
+  {
+   "record": "t7_e20.npz",
+   "task_id": 7,
+   "episode": 20,
+   "n_steps": 119,
+   "n_chunks": 12,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.004438928377054048
+  },
+  {
+   "record": "t7_e21.npz",
+   "task_id": 7,
+   "episode": 21,
+   "n_steps": 146,
+   "n_chunks": 15,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.003835625047179225
+  },
+  {
+   "record": "t8_e20.npz",
+   "task_id": 8,
+   "episode": 20,
+   "n_steps": 93,
+   "n_chunks": 10,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.005193221696143535
+  },
+  {
+   "record": "t8_e21.npz",
+   "task_id": 8,
+   "episode": 21,
+   "n_steps": 102,
+   "n_chunks": 11,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0048300119748137535
+  },
+  {
+   "record": "t9_e20.npz",
+   "task_id": 9,
+   "episode": 20,
+   "n_steps": 111,
+   "n_chunks": 12,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0051376300948498795
+  },
+  {
+   "record": "t9_e21.npz",
+   "task_id": 9,
+   "episode": 21,
+   "n_steps": 118,
+   "n_chunks": 12,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.005543643334387468
+  }
+ ],
+ "vqb_commit": "dcd3cd1",
+ "gpu": "NVIDIA GeForce RTX 5080 Laptop GPU",
+ "created": "2026-09-18T20:14:29"
+}

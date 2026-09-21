@@ -8,12 +8,13 @@ VLAQuantBench measures the thing that actually matters instead: **task success w
 quantized policy is rolled out in the simulator under the benchmark's own protocol.**
 
 Every number in the paper is reproducible from this repository. The per-episode records
-of all 370 evaluation cells (96,468 rollouts) are included. The paper analyzes the
-manifest-defined subset of 363 runs (85,374 simulation episodes): the seven SIMPLER
-variant-aggregation runs are shipped but excluded because their per-variant coverage is
-unequal. Runs include baselines and evaluation-seed repetitions, so 363 is not a count of
-distinct precision assignments. Every table is regenerated from the records by a script —
-nothing is transcribed by hand.
+of all 417 evaluation cells (105,868 closed-loop episodes) are included, together with the
+summaries of the same-observation replay study. The paper analyzes a manifest-defined subset
+(its appendix lists the files and counts); the seven SIMPLER variant-aggregation runs, one
+broader-pattern exclusion trial (`ablate-W3-e2e-no_any_fc2`) and the replay reference
+trajectories are shipped but outside that subset. Cells include baselines and evaluation-seed
+repetitions, so the cell count is not a count of distinct precision assignments. Every table
+is regenerated from the records by a script — nothing is transcribed by hand.
 
 ```bash
 vqb run --model pi05 --benchmark libero --suite libero_spatial --preset W4A4 --scope ah
@@ -30,24 +31,37 @@ python scripts/verify_cells.py            # independent audit of every shipped c
 | **Formats** | W2/W3/W4/W8 weight-only; W4A4, W4A6, W4A8, W8A8 with activations; per-group / per-channel, symmetric / asymmetric |
 | **Scopes** | end-to-end · one component (VE / MP / LLM / AH) · a layer group · a single named layer |
 | **Methods** | RTN anchor, plus AWQ, NF4, LLM.int8(), SmoothQuant on the LLM backbone, in both fake-quant and real-kernel paths |
-| **Scale** | 370 shipped cells / 96,468 closed-loop episodes; the paper's manifest subset is 363 runs / 85,374 simulation episodes. 200 episodes per LIBERO cell with 95% Wilson intervals (X-VLA 190); budgets and native metrics differ per benchmark (five VLABench W4A4 tracks at a documented reduced budget) |
+| **Scale** | 417 shipped cells / 105,868 closed-loop episodes (`results/summary.csv`); the paper analyzes a manifest-defined subset. 200 episodes per LIBERO cell with 95% Wilson intervals (X-VLA 190); budgets and native metrics differ per benchmark (five VLABench W4A4 tracks at a documented reduced budget) |
 
 ## Main findings (all regenerated from the shipped records)
 
-1. **More quantized layers can improve task success.** Expanding a π0.5 W4A4 action-head
-   scope from 126 to 167 layers raises LIBERO-Spatial success from 7.0% to 70.5%
-   (baseline 99.0%). The recovery repeats on LIBERO-Object at three evaluation seeds
-   (1.0/0.0/2.0% → 60.0/63.0/61.0%).
-2. **Isolated success losses can miss joint failure.** On the same action head, attention
-   alone costs 1.0 percentage points and the adaRMS modulators alone 5.5, but their
-   108-layer union costs 97.5. This is non-additivity in task success; the underlying
-   numerical mechanism remains open.
-3. **Local activation statistics can miss large sensitivity differences.** OpenVLA-OFT's
-   28,672-parameter output projection and its residual-layer group have activation
-   kurtosis 834.3 and 835.3, yet W4A8 success is 18.0% and 99.5%, an 81.5-point gap.
-   On one held-out OFT trajectory, AWQ has 1.44× lower action MAE than RTN at W4
-   (1.15× at W3), while near-ceiling task scores do not resolve whether that fidelity
-   gain changes success.
+1. **Isolated sensitivity is not compositional.** On π0.5's action head at W4A4, attention
+   alone costs 1.0 percentage points and the adaRMS modulators alone 5.5, but their 108-layer
+   union costs 97.5 (LIBERO-Spatial, baseline 99.0%; repeated on Object at three seeds).
+   X-VLA's two MLP projection groups lose 30.5 and 2.6 points separately and 72.6 jointly.
+2. **Under uncalibrated W4A4 RTN, quantizing more layers can improve success.** Expanding the
+   π0.5 subset from 126 to 167 layers raises success from 7.0% to 70.5%. Same-observation,
+   same-noise replay of 20 held-out trajectories shows the larger subset also has lower
+   action-chunk error on 217 of 219 chunks, so this is not a success-threshold artifact. The
+   recovery is carried by five small conditioning and projection layers (5.3M parameters:
+   126 + those five = 78.5%), not by the 36 gate/up projections (26.5%). It is absent at W4
+   and W4A8 (all six settings within 1.5 points of baseline) and disappears under two-episode
+   action-head calibration (union 97.5%, 126-layer subset 99.0%).
+3. **One 28,672-parameter projection carries OpenVLA-OFT's failures.** Quantizing only its
+   final action projection fc2 at W4A8 gives 18.0% while the 33.6M-parameter residual group
+   gives 99.5%, although their activation kurtosis is 834.3 versus 835.3. Keeping fc2 at
+   released precision while the other 441 eligible layers are quantized restores the W3
+   LIBERO-Long collapse (8.0% → 93.5/91.5/91.0% over three seeds) and every 8-bit-activation
+   collapse on the four suites (W4A8: 21.5/2.5/2.0/76.0% → 97.5/97.0/98.0/94.0%).
+4. **Calibration is part of the precision assignment.** The same two-episode SmoothQuant-style
+   recipe recovers π0.5 (end-to-end W4A4 0% → 91.5% at α=0.75; action head 70.5% → 98.5%),
+   lowers π0 at every scope (end-to-end 61.0% → 10.5%), and only partially recovers OFT
+   (LLM 0% → 33.0%, action head 0% → 38.5%, end-to-end 0% → 9.5%). Folding the smoothing
+   vector into 4-bit weights doubles π0's weight quantization error; it barely changes π0.5's.
+5. **Proxies need closed-loop validation.** On one held-out OFT trajectory AWQ has 1.44× lower
+   action MAE than RTN at W4 (1.15× at W3) while near-ceiling task success cannot resolve a
+   difference; task-clustered bootstrap intervals (`scripts/clustered_table.py`) show which
+   headline contrasts survive task-level clustering and which (π0 Spatial W4) do not.
 
 ## Install
 
@@ -79,14 +93,23 @@ python scripts/diag_vs_damage.py               # activation statistics vs. measu
 python scripts/profile_kernels.py              # real-kernel latency and memory
 python scripts/action_fidelity.py record ...   # paired-observation action fidelity: record one
 python scripts/action_fidelity.py replay ...   #   full-precision episode, replay it quantized
+python scripts/replay_pi05_subsets.py record   # same-observation, same-noise replay of action-head
+python scripts/replay_pi05_subsets.py replay   #   subsets (20 held-out π0.5 trajectories): record,
+python scripts/replay_pi05_subsets.py analyze  #   replay each configuration, compose the statistics
+python scripts/replay_table.py                 # replay summary table from analysis.json
+python scripts/clustered_table.py              # task-clustered bootstrap intervals for the headline contrasts
+python scripts/calib_scope_table.py            # three-model calibration-by-scope table
+python scripts/make_summary.py                 # regenerate results/summary.csv from the records
 ```
 
 Activation calibration (`vqb run --act-calib ...`) collects its statistics on init states
 starting at 20 by default (`--act-calib-from`), disjoint from the evaluation states 0–19; the
 cells collected in August 2026 used `--act-calib-from 0`, and the three-set replication in
 `results/libero/libero_spatial/pi05/calib_set*` shows the choice does not change the outcome.
-Every run header records the calibration components, episode range, seed, smoothing strength,
-clip quantile, cache tag, and code revision, and the statistics cache is keyed on all of them.
+The September 2026 calibration cells (`calib_*` for π0.5, π0 and OpenVLA-OFT) use init states
+20–21. Every run header records the calibration components, episode range, seed, smoothing
+strength, clip quantile, cache tag, and code revision, and the statistics cache is keyed on all
+of them.
 
 ## Results layout
 
@@ -99,10 +122,11 @@ quantization report (layers and parameters actually quantized), seed, git commit
 GPU. Every following line is one episode: task, episode index, seed, success, steps, wall
 time, per-benchmark scalar (CALVIN subtasks, VLABench progress), policy and inference
 latency, peak VRAM. Runs are resumable and a header mismatch is refused.
-`results/summary.csv` carries one row per cell with its Wilson interval. Real-kernel profiling
-runs (`results/latency/`), the paired-observation fidelity test (`results/fidelity/`), and the
-activation diagnostics with full provenance (`diagnostics/v2/`) are described in
-[`results/README.md`](results/README.md).
+`results/summary.csv` carries one row per cell with its Wilson interval
+(`scripts/make_summary.py`). Real-kernel profiling runs (`results/latency/`), the
+paired-observation fidelity test (`results/fidelity/`), the replay-study summaries
+(`results/replay/`), and the activation diagnostics with full provenance (`diagnostics/v2/`)
+are described in [`results/README.md`](results/README.md).
 
 ## Evaluation-stack pitfalls
 
@@ -117,9 +141,12 @@ typical method delta, and each is invisible without per-task auditing:
   weight-only behaviour for it. Because OFT's activation failure lives in one layer, a
   2–36% outcome becomes a healthy-looking 94–96%.
 
-`scripts/verify_cells.py` asserts hook coverage per component and rejects any cell whose
-recorded layer count mismatches its scope. It caught a real silent failure during this
-study: a pattern-mismatch ablation that had quantized nothing and re-measured the baseline.
+Hook coverage is enforced in code: `quantize_modules` installs the activation hook on every
+layer it quantizes, the run header records the per-component layer counts, and results from
+the pre-fix code path are not shipped. `scripts/verify_cells.py` recomputes every cell from its
+episode records and rejects any cell whose recorded quantized-layer count disagrees with its
+declared scope. It caught a real silent failure during this study: a pattern-mismatch ablation
+that had quantized nothing and re-measured the baseline.
 
 ## Adding your own
 

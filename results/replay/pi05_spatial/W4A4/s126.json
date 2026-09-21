@@ -1,0 +1,255 @@
+{
+ "config": "s126",
+ "model": "pi05",
+ "suite": "libero_spatial",
+ "preset": "W4A4",
+ "scope": "ah",
+ "only": [
+  "*down_proj*",
+  "*self_attn*",
+  "*layernorm.dense*",
+  "*model.norm.dense*"
+ ],
+ "quantized_layers": 126,
+ "quant_report": {
+  "ah": {
+   "layers": 126,
+   "params": 273678336,
+   "mean_rel_mse": null
+  }
+ },
+ "checkpoint": "lerobot/pi05_libero_finetuned_v044",
+ "downproj_layers": [
+  "model.paligemma_with_expert.gemma_expert.model.layers.0.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.1.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.2.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.3.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.4.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.5.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.6.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.7.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.8.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.9.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.10.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.11.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.12.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.13.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.14.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.15.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.16.mlp.down_proj",
+  "model.paligemma_with_expert.gemma_expert.model.layers.17.mlp.down_proj"
+ ],
+ "downproj_columns": [
+  "tok_absmax_mean",
+  "tok_absmax_p50",
+  "tok_absmax_p99",
+  "tok_absmax_max",
+  "abs_kurtosis",
+  "n_tokens"
+ ],
+ "records": [
+  {
+   "record": "t0_e20.npz",
+   "task_id": 0,
+   "episode": 20,
+   "n_steps": 78,
+   "n_chunks": 8,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.14023459881985254
+  },
+  {
+   "record": "t0_e21.npz",
+   "task_id": 0,
+   "episode": 21,
+   "n_steps": 75,
+   "n_chunks": 8,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.14384214108926244
+  },
+  {
+   "record": "t1_e20.npz",
+   "task_id": 1,
+   "episode": 20,
+   "n_steps": 111,
+   "n_chunks": 12,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.1307911544463563
+  },
+  {
+   "record": "t1_e21.npz",
+   "task_id": 1,
+   "episode": 21,
+   "n_steps": 106,
+   "n_chunks": 11,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.1348439685194226
+  },
+  {
+   "record": "t2_e20.npz",
+   "task_id": 2,
+   "episode": 20,
+   "n_steps": 92,
+   "n_chunks": 10,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.13132710796226826
+  },
+  {
+   "record": "t2_e21.npz",
+   "task_id": 2,
+   "episode": 21,
+   "n_steps": 94,
+   "n_chunks": 10,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.12970470100780843
+  },
+  {
+   "record": "t3_e20.npz",
+   "task_id": 3,
+   "episode": 20,
+   "n_steps": 88,
+   "n_chunks": 9,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.12826230596640795
+  },
+  {
+   "record": "t3_e21.npz",
+   "task_id": 3,
+   "episode": 21,
+   "n_steps": 83,
+   "n_chunks": 9,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.1250312169845975
+  },
+  {
+   "record": "t4_e20.npz",
+   "task_id": 4,
+   "episode": 20,
+   "n_steps": 132,
+   "n_chunks": 14,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.13673507014915798
+  },
+  {
+   "record": "t4_e21.npz",
+   "task_id": 4,
+   "episode": 21,
+   "n_steps": 126,
+   "n_chunks": 13,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.13375719557672686
+  },
+  {
+   "record": "t5_e20.npz",
+   "task_id": 5,
+   "episode": 20,
+   "n_steps": 94,
+   "n_chunks": 10,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.1332567266957204
+  },
+  {
+   "record": "t5_e21.npz",
+   "task_id": 5,
+   "episode": 21,
+   "n_steps": 88,
+   "n_chunks": 9,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.15617403093101412
+  },
+  {
+   "record": "t6_e20.npz",
+   "task_id": 6,
+   "episode": 20,
+   "n_steps": 111,
+   "n_chunks": 12,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.13601617650627823
+  },
+  {
+   "record": "t6_e21.npz",
+   "task_id": 6,
+   "episode": 21,
+   "n_steps": 116,
+   "n_chunks": 12,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.15188272333636696
+  },
+  {
+   "record": "t7_e20.npz",
+   "task_id": 7,
+   "episode": 20,
+   "n_steps": 119,
+   "n_chunks": 12,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.14288128653809115
+  },
+  {
+   "record": "t7_e21.npz",
+   "task_id": 7,
+   "episode": 21,
+   "n_steps": 146,
+   "n_chunks": 15,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.13763841116924383
+  },
+  {
+   "record": "t8_e20.npz",
+   "task_id": 8,
+   "episode": 20,
+   "n_steps": 93,
+   "n_chunks": 10,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.1341936157256048
+  },
+  {
+   "record": "t8_e21.npz",
+   "task_id": 8,
+   "episode": 21,
+   "n_steps": 102,
+   "n_chunks": 11,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.13344107990285853
+  },
+  {
+   "record": "t9_e20.npz",
+   "task_id": 9,
+   "episode": 20,
+   "n_steps": 111,
+   "n_chunks": 12,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.14597617698685167
+  },
+  {
+   "record": "t9_e21.npz",
+   "task_id": 9,
+   "episode": 21,
+   "n_steps": 118,
+   "n_chunks": 12,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.14875774227457486
+  }
+ ],
+ "vqb_commit": "dcd3cd1",
+ "gpu": "NVIDIA GeForce RTX 5080 Laptop GPU",
+ "created": "2026-09-18T15:41:05"
+}

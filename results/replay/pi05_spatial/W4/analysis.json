@@ -1,0 +1,530 @@
+{
+ "records": [
+  {
+   "record": "t0_e20.npz",
+   "task_id": 0,
+   "episode": 20,
+   "n_steps": 78,
+   "n_chunks": 8,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t0_e21.npz",
+   "task_id": 0,
+   "episode": 21,
+   "n_steps": 75,
+   "n_chunks": 8,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t1_e20.npz",
+   "task_id": 1,
+   "episode": 20,
+   "n_steps": 111,
+   "n_chunks": 12,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t1_e21.npz",
+   "task_id": 1,
+   "episode": 21,
+   "n_steps": 106,
+   "n_chunks": 11,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t2_e20.npz",
+   "task_id": 2,
+   "episode": 20,
+   "n_steps": 92,
+   "n_chunks": 10,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t2_e21.npz",
+   "task_id": 2,
+   "episode": 21,
+   "n_steps": 94,
+   "n_chunks": 10,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t3_e20.npz",
+   "task_id": 3,
+   "episode": 20,
+   "n_steps": 88,
+   "n_chunks": 9,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t3_e21.npz",
+   "task_id": 3,
+   "episode": 21,
+   "n_steps": 83,
+   "n_chunks": 9,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t4_e20.npz",
+   "task_id": 4,
+   "episode": 20,
+   "n_steps": 132,
+   "n_chunks": 14,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t4_e21.npz",
+   "task_id": 4,
+   "episode": 21,
+   "n_steps": 126,
+   "n_chunks": 13,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t5_e20.npz",
+   "task_id": 5,
+   "episode": 20,
+   "n_steps": 94,
+   "n_chunks": 10,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t5_e21.npz",
+   "task_id": 5,
+   "episode": 21,
+   "n_steps": 88,
+   "n_chunks": 9,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t6_e20.npz",
+   "task_id": 6,
+   "episode": 20,
+   "n_steps": 111,
+   "n_chunks": 12,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t6_e21.npz",
+   "task_id": 6,
+   "episode": 21,
+   "n_steps": 116,
+   "n_chunks": 12,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t7_e20.npz",
+   "task_id": 7,
+   "episode": 20,
+   "n_steps": 119,
+   "n_chunks": 12,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t7_e21.npz",
+   "task_id": 7,
+   "episode": 21,
+   "n_steps": 146,
+   "n_chunks": 15,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t8_e20.npz",
+   "task_id": 8,
+   "episode": 20,
+   "n_steps": 93,
+   "n_chunks": 10,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t8_e21.npz",
+   "task_id": 8,
+   "episode": 21,
+   "n_steps": 102,
+   "n_chunks": 11,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t9_e20.npz",
+   "task_id": 9,
+   "episode": 20,
+   "n_steps": 111,
+   "n_chunks": 12,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  },
+  {
+   "record": "t9_e21.npz",
+   "task_id": 9,
+   "episode": 21,
+   "n_steps": 118,
+   "n_chunks": 12,
+   "flow_steps": 10,
+   "recorded_success": true,
+   "dev_from_recorded_actions": 0.0
+  }
+ ],
+ "configs": {
+  "adarms": {
+   "preset": "W4",
+   "quantized_layers": 36,
+   "executed_action_mae": 0.0010231995481208777,
+   "executed_action_mae_per_dim": [
+    0.0010495390358505716,
+    0.0010566706614916679,
+    0.0014127619900757226,
+    0.0001446170860027829,
+    0.0002381928935530763,
+    0.00024317213480794052,
+    0.0030174430350643822
+   ],
+   "executed_action_signed_mean_per_dim": [
+    0.0002589596849448167,
+    -9.27656463316525e-05,
+    -0.00026181979222018387,
+    2.4281259215035823e-05,
+    -2.83916939570391e-06,
+    -9.828752460717383e-05,
+    -5.995230038350325e-05
+   ],
+   "chunk_mae_mean": 0.003604369005188346,
+   "chunk_mae_median": 0.0032579367980360985,
+   "flow_step_divergence": [
+    0.0,
+    0.00039410454337485135,
+    0.0006020983564667404,
+    0.0007435432635247707,
+    0.0008437702781520784,
+    0.0009473277605138719,
+    0.0011101813288405538,
+    0.0012570827966555953,
+    0.0013956008478999138,
+    0.0016312850639224052
+   ],
+   "downproj_tok_absmax_mean": 9.06873980505035,
+   "downproj_tok_absmax_p99": 15.203639458313079,
+   "downproj_abs_kurtosis": 314.02463687334284,
+   "dev_from_recorded_actions": 0.001026495818594982
+  },
+  "attention": {
+   "preset": "W4",
+   "quantized_layers": 72,
+   "executed_action_mae": 0.0018060907800593426,
+   "executed_action_mae_per_dim": [
+    0.0028575638749968016,
+    0.0025408307999816014,
+    0.0033745887799727704,
+    0.00039623303424282625,
+    0.0006640546080404629,
+    0.0005273497895933634,
+    0.002282014573587572
+   ],
+   "executed_action_signed_mean_per_dim": [
+    0.0001146700993301888,
+    0.00024295847217337306,
+    0.0019271196229665027,
+    0.00011930102052098204,
+    -0.00016852575233559366,
+    -0.0002316250331678387,
+    0.00019445262788524435
+   ],
+   "chunk_mae_mean": 0.011681769974529743,
+   "chunk_mae_median": 0.010084313340485096,
+   "flow_step_divergence": [
+    0.0,
+    0.000527271069586277,
+    0.0009557369630783796,
+    0.0013661974808201194,
+    0.0017677575815469027,
+    0.002160528674721718,
+    0.0025447863154113293,
+    0.0029260371811687946,
+    0.0032950895838439465,
+    0.0036251291166990995
+   ],
+   "downproj_tok_absmax_mean": 9.068528784598639,
+   "downproj_tok_absmax_p99": 15.18686009317529,
+   "downproj_abs_kurtosis": 314.5799363467571,
+   "dev_from_recorded_actions": 0.0018193224823875782
+  },
+  "baseline": {
+   "preset": "BASELINE",
+   "quantized_layers": 0,
+   "executed_action_mae": 0.0,
+   "executed_action_mae_per_dim": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "executed_action_signed_mean_per_dim": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "chunk_mae_mean": 0.0,
+   "chunk_mae_median": 0.0,
+   "flow_step_divergence": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "downproj_tok_absmax_mean": 9.087239322955785,
+   "downproj_tok_absmax_p99": 15.234890834885997,
+   "downproj_abs_kurtosis": 315.0103009030548,
+   "dev_from_recorded_actions": 0.0
+  },
+  "baseline2": {
+   "preset": "BASELINE",
+   "quantized_layers": 0,
+   "executed_action_mae": 0.0,
+   "executed_action_mae_per_dim": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "executed_action_signed_mean_per_dim": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "chunk_mae_mean": 0.0,
+   "chunk_mae_median": 0.0,
+   "flow_step_divergence": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "downproj_tok_absmax_mean": 9.087239322955785,
+   "downproj_tok_absmax_p99": 15.234890834885997,
+   "downproj_abs_kurtosis": 315.0103009030548,
+   "dev_from_recorded_actions": 0.0
+  },
+  "s126": {
+   "preset": "W4",
+   "quantized_layers": 126,
+   "executed_action_mae": 0.0023237580112960526,
+   "executed_action_mae_per_dim": [
+    0.0035078099826408933,
+    0.003145159025905914,
+    0.003748143761563175,
+    0.00045219957328880355,
+    0.0007816066646226827,
+    0.0006890426528699556,
+    0.003942344418180944
+   ],
+   "executed_action_signed_mean_per_dim": [
+    0.00014999817539966857,
+    0.0002311084489237501,
+    0.0011335081110994117,
+    4.608983254333778e-05,
+    -5.691299913339299e-05,
+    -0.0003467861942337058,
+    0.0006832484579750168
+   ],
+   "chunk_mae_mean": 0.013828624971210957,
+   "chunk_mae_median": 0.012075391598045826,
+   "flow_step_divergence": [
+    0.0,
+    0.0008845728589221835,
+    0.0016263144789263606,
+    0.0023020077496767044,
+    0.002930933143943548,
+    0.0035362804774194956,
+    0.004126495681703091,
+    0.00466733006760478,
+    0.005135111045092344,
+    0.0055428314954042435
+   ],
+   "downproj_tok_absmax_mean": 9.043099997187056,
+   "downproj_tok_absmax_p99": 15.138879416175927,
+   "downproj_abs_kurtosis": 312.95004353887975,
+   "dev_from_recorded_actions": 0.0023370537648127543
+  },
+  "s167": {
+   "preset": "W4",
+   "quantized_layers": 167,
+   "executed_action_mae": 0.0047582569932775555,
+   "executed_action_mae_per_dim": [
+    0.0075090171673580595,
+    0.007775681222996,
+    0.005900640645123878,
+    0.0009392726732106308,
+    0.0014670678187274355,
+    0.0014470171285511507,
+    0.00826910229697573
+   ],
+   "executed_action_signed_mean_per_dim": [
+    -0.0030278400001592263,
+    0.0015647277107218166,
+    0.0005728518371248955,
+    -0.0003997279057291301,
+    0.00046985154967903517,
+    -0.0007802944687837614,
+    -0.001802930695130398
+   ],
+   "chunk_mae_mean": 0.023281680420041084,
+   "chunk_mae_median": 0.02177044190466404,
+   "flow_step_divergence": [
+    0.0,
+    0.003144607413560152,
+    0.006060123909264803,
+    0.008791057392954826,
+    0.011265311390161514,
+    0.013452284038066864,
+    0.01534071285277605,
+    0.016814423725008965,
+    0.017762217670679092,
+    0.017758939415216446
+   ],
+   "downproj_tok_absmax_mean": 9.147957722754747,
+   "downproj_tok_absmax_p99": 15.344460798599117,
+   "downproj_abs_kurtosis": 311.7628357960702,
+   "dev_from_recorded_actions": 0.004781320700439103
+  },
+  "union": {
+   "preset": "W4",
+   "quantized_layers": 108,
+   "executed_action_mae": 0.0020488932495457707,
+   "executed_action_mae_per_dim": [
+    0.002891976618803984,
+    0.0027139587806241762,
+    0.0033548757795153245,
+    0.00040812033157709823,
+    0.0006900820171346944,
+    0.0006195033069492545,
+    0.003663735912215864
+   ],
+   "executed_action_signed_mean_per_dim": [
+    0.00034845532582061426,
+    9.121381522541256e-05,
+    0.0015197026449873994,
+    0.00014616336348898928,
+    -0.00018541302129114785,
+    -0.0003483004252588626,
+    0.0003102160078141189
+   ],
+   "chunk_mae_mean": 0.012157972902059555,
+   "chunk_mae_median": 0.010781046003103256,
+   "flow_step_divergence": [
+    0.0,
+    0.0006542724440805614,
+    0.001149382209405303,
+    0.0015880328137427568,
+    0.00199361564591527,
+    0.002409751294180751,
+    0.0028494212310761213,
+    0.00327239534817636,
+    0.0036572732497006655,
+    0.004033263772726059
+   ],
+   "downproj_tok_absmax_mean": 9.050221910492976,
+   "downproj_tok_absmax_p99": 15.157211466184021,
+   "downproj_abs_kurtosis": 313.60000503143397,
+   "dev_from_recorded_actions": 0.0020673625917662897
+  }
+ },
+ "additivity": {
+  "n_chunks": 219,
+  "norm_union_over_sum_of_norms": {
+   "median": 0.8015169199922573,
+   "iqr": [
+    0.7613460578844639,
+    0.855065827466228
+   ]
+  },
+  "norm_union_over_norm_of_sum": {
+   "median": 0.985225665071682
+  },
+  "residual_over_union": {
+   "median": 0.17098522186279297,
+   "iqr": [
+    0.12805865705013275,
+    0.21138212084770203
+   ]
+  },
+  "cosine_union_vs_sum": {
+   "median": 0.9863647222518921,
+   "iqr": [
+    0.9789615273475647,
+    0.9923088848590851
+   ]
+  },
+  "definition": "e_c = chunk_c - chunk_baseline on identical observations and identical flow noise; sum = e_attention + e_adarms; residual = ||e_union - sum|| / ||e_union||"
+ },
+ "recovery": {
+  "chunk_mae_126": 0.013828624971210957,
+  "chunk_mae_167": 0.023281680420041084,
+  "frac_chunks_167_lower": 0.0,
+  "n_chunks": 219
+ },
+ "repeatability_floor": 0.0,
+ "fp_mean_abs_action": 0.31565432130451065,
+ "created": "2026-09-21T13:05:41"
+}
