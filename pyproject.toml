@@ -4,9 +4,17 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vlaquantbench"
-version = "0.1.0"
-description = "Benchmarking post-training quantization for vision-language-action models under closed-loop control"
+version = "1.1.0"
+description = "Closed-loop evaluation of post-training quantization for vision-language-action models"
 readme = "README.md"
+authors = [
+  { name = "Jiuyi Xu", email = "jiuyi_xu@mines.edu" },
+  { name = "Qing Jin" },
+  { name = "Meida Chen" },
+  { name = "Song Wang" },
+  { name = "Yang Sui" },
+  { name = "Yangming Shi" },
+]
 requires-python = ">=3.8"
 license = { text = "MIT" }
 dependencies = [

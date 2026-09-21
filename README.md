@@ -2,6 +2,18 @@
 
 **Closed-loop evaluation of post-training quantization for vision–language–action models.**
 
+[Jiuyi Xu](https://jiuyixu25.github.io/)<sup>1</sup>, Qing Jin<sup>2</sup>, Meida Chen<sup>3</sup>, Song Wang<sup>4</sup>, Yang Sui<sup>5</sup>, Yangming Shi<sup>1</sup>
+
+<sup>1</sup>Colorado School of Mines · <sup>2</sup>Independent Researcher · <sup>3</sup>University of Central Florida · <sup>4</sup>USC Institute for Creative Technologies · <sup>5</sup>Microsoft AI
+
+[![Paper](https://img.shields.io/badge/paper-arXiv%20preprint-b31b1b)](#citation)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Cells](https://img.shields.io/badge/closed--loop%20cells-417-blue)](results/summary.csv)
+
+Corresponding author: Jiuyi Xu (jiuyi_xu@mines.edu). Paper: *VLAQuantBench: Closed-Loop
+Evaluation of Post-Training Quantization for Vision-Language-Action Models*, arXiv preprint,
+September 2026 (link to be added once the identifier is assigned).
+
 <p align="center"><img src="docs/figures/overview.png" width="760" alt="Evaluation axes of VLAQuantBench: four VLA models, an RTN anchor over numerical formats, component-to-layer quantization scopes, and four simulation benchmark families plus a real robot"></p>
 
 Quantization decisions for VLA policies are usually made with proxy signals — action
