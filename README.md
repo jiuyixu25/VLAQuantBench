@@ -1,13 +1,24 @@
+<div align="center">
+
 # VLAQuantBench
 
-**Closed-loop evaluation of post-training quantization for vision–language–action models.**
+### Closed-Loop Evaluation of Post-Training Quantization for Vision-Language-Action Models
 
-[Jiuyi Xu](https://jiuyixu25.github.io/), Qing Jin, Meida Chen, Song Wang, Yang Sui, Yangming Shi
+**Jiuyi Xu**<sup>1</sup>, **Qing Jin**<sup>2</sup>, **Meida Chen**<sup>3</sup>, **Song Wang**<sup>4</sup>, **Yang Sui**<sup>5</sup>, **Yangming Shi**<sup>1</sup>
 
-[![Paper](https://img.shields.io/badge/paper-arXiv%20preprint-b31b1b)](#citation)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+<sup>1</sup>Colorado School of Mines &nbsp;&nbsp; <sup>2</sup>Independent Researcher &nbsp;&nbsp; <sup>3</sup>University of Central Florida &nbsp;&nbsp; <sup>4</sup>University of Southern California, Institute for Creative Technologies &nbsp;&nbsp; <sup>5</sup>Microsoft AI
 
-<p align="center"><img src="docs/figures/overview.png" width="760" alt="Evaluation axes of VLAQuantBench: four VLA models, an RTN anchor over numerical formats, component-to-layer quantization scopes, and four simulation benchmark families plus a real robot"></p>
+<a href="#citation"><img src="https://img.shields.io/badge/arXiv-preprint-b31b1b.svg" alt="arXiv preprint"></a>
+<img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT">
+<img src="https://img.shields.io/badge/python-3.8%2B-3776ab.svg" alt="Python 3.8+">
+
+</div>
+
+<p align="center">
+  <img src="docs/figures/overview.png" width="100%" alt="Evaluation axes of VLAQuantBench">
+</p>
+
+<p align="center"><em><b>Evaluation axes of VLAQuantBench.</b> A fixed round-to-nearest quantizer anchors comparisons across numerical formats (W3 to W8A8) and quantization scopes (end-to-end, component, layer group, single projection) for four VLA models on LIBERO, SIMPLER, CALVIN and VLABench, complemented by a physical-robot study.</em></p>
 
 Quantization decisions for VLA policies are usually made with proxy signals — action
 error against the full-precision policy, or calibration-time activation statistics.
